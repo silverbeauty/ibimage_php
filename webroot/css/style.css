@@ -1,0 +1,111 @@
+@import url('font-awesome.min.css');
+@import url('simpletextrotator.css');
+@import url('overwrite.css');
+@import url('animate.css');
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+/*********************
+General
+ *********************/
+body{
+    text-align: center;
+    font-family: "Roboto","Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size: 16px;
+    line-height: 1.6em;
+    background-color: #000000;
+    color: #ffffff;
+}
+
+.container {
+    /*width: 1280px;*/
+}
+
+nav.navbar {
+    border-radius: 0;
+    border: none;
+    color: white;
+    padding: 20px 0;
+}
+.navbar-default {
+    background-color: #000000;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.navbar-default a {
+    color: #888888;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    outline: 0;
+
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: white;
+}
+
+.logo span{
+    font-size: 3.5rem;
+    font-weight: bold;
+}
+.brand p {
+    margin-top: 3rem;
+    font-size: 3rem;
+    color: #676767;
+}
+.section-logo {
+    border-bottom: 2px solid #898989;
+    padding: 20px;
+}
+.section-logo > div {
+    padding: 20px;
+}
+
+.section-logo >div:first-child {
+    border-right: 2px solid #898989;
+}
+.login-form {
+    text-align: left;
+    margin-top: 20px;
+}
+.login-form label{
+    font-size: 2.5rem;
+}
+.login-form label.remember {
+    font-size: 2rem;
+}
+
+.btn-white {
+    background-color: white;
+    color: black;
+}
+.btn-white:focus, .btn-white:active, .btn-white:visited, .btn-white:hover {
+    color: black;
+}
+
+.section-social {
+    margin-top: 20px;
+}
+h5 {
+    font-size: 20px;
+}

@@ -1,0 +1,14 @@
+@media (min-width: 1200px) {
+    .container {
+        width: 1280px;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        font-size: 14px;
+    }
+    .section-logo >div:first-child {
+        border: none;
+    }
+}

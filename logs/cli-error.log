@@ -1,0 +1,25 @@
+2018-04-17 18:04:48 Error: [RuntimeException] Unknown command `cake serve`. Run `cake --help` to get the list of valid commands. in G:\github\ibimages\vendor\cakephp\cakephp\src\Console\CommandRunner.php on line 318
+Stack Trace:
+#0 G:\github\ibimages\vendor\cakephp\cakephp\src\Console\CommandRunner.php(156): Cake\Console\CommandRunner->resolveName(Object(Cake\Console\CommandCollection), Object(Cake\Console\ConsoleIo), 'serve')
+#1 G:\github\ibimages\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#2 {main}
+
+
+2018-04-18 09:34:03 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'ibimages.user' doesn't exist in G:\github\ibimages\vendor\cakephp\cakephp\src\Database\Schema\Collection.php on line 131
+Stack Trace:
+#0 G:\github\ibimages\vendor\cakephp\cakephp\src\Database\Schema\Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'user', Array, Object(Cake\Database\Schema\TableSchema))
+#1 G:\github\ibimages\vendor\cakephp\cakephp\src\Database\Schema\CachedCollection.php(63): Cake\Database\Schema\Collection->describe('user', Array)
+#2 G:\github\ibimages\vendor\cakephp\cakephp\src\ORM\Table.php(548): Cake\Database\Schema\CachedCollection->describe('user')
+#3 G:\github\ibimages\vendor\cakephp\cakephp\src\ORM\Table.php(673): Cake\ORM\Table->getSchema()
+#4 G:\github\ibimages\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(220): Cake\ORM\Table->getPrimaryKey()
+#5 G:\github\ibimages\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(130): Bake\Shell\Task\ModelTask->getAssociations(Object(Cake\ORM\Table))
+#6 G:\github\ibimages\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(113): Bake\Shell\Task\ModelTask->getTableContext(Object(Cake\ORM\Table), 'user', 'User')
+#7 G:\github\ibimages\vendor\cakephp\bake\src\Shell\Task\ModelTask.php(100): Bake\Shell\Task\ModelTask->bake('User')
+#8 G:\github\ibimages\vendor\cakephp\cakephp\src\Console\Shell.php(532): Bake\Shell\Task\ModelTask->main('User')
+#9 G:\github\ibimages\vendor\cakephp\cakephp\src\Console\Shell.php(525): Cake\Console\Shell->runCommand(Array, false, Array)
+#10 G:\github\ibimages\vendor\cakephp\cakephp\src\Console\CommandRunner.php(339): Cake\Console\Shell->runCommand(Array, true)
+#11 G:\github\ibimages\vendor\cakephp\cakephp\src\Console\CommandRunner.php(161): Cake\Console\CommandRunner->runShell(Object(Bake\Shell\BakeShell), Array)
+#12 G:\github\ibimages\bin\cake.php(12): Cake\Console\CommandRunner->run(Array)
+#13 {main}
+
+
