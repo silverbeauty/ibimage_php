@@ -1,5 +1,4 @@
 <section class="row section-logo">
-  <div><?=md5('123456')?></div>
   <div class="col-md-6 brand">
       <div class="logo">
         <img src="<?= $this->Url->image('ibimages.logo.png')?>" style="vertical-align: middle">

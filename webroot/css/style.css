@@ -109,3 +109,53 @@ nav.navbar {
 h5 {
     font-size: 20px;
 }
+
+
+.social-icon:before {
+    width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-size: cover;
+}
+.icon-facebook::before {
+    background-image: url(../img/social/facebook.png);
+    content: ' ';
+}
+
+
+.icon-instagram::before  {
+    content: ' ';
+    background-image: url(../img/social/instagram.png);
+}
+
+.icon-snapchat::before  {
+    content: ' ';
+    background-image: url(../img/social/snapchat.png);
+}
+
+.icon-pinterest::before  {
+    content: ' ';
+    background-image: url(../img/social/pinterest.png);
+}
+
+.icon-tweet::before  {
+    content: ' ';
+    background-image: url(../img/social/twitter.png);
+}
+
+.loader {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #555;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: calc(50% - 20px);
+    left: calc(50% - 20px);
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

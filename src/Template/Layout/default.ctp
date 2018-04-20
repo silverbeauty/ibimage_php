@@ -25,13 +25,15 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
         <?= $this->fetch('title') ?>
     </title>
     <?= $this->Html->meta('icon') ?>
-
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->css('responsive.css') ?>
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
+    <?= $this->Html->script('jquery.js') ?>
+    <?= $this->Html->script('bootstrap.min.js') ?>
+
 </head>
 <body>
   <nav class="navbar navbar-default">
@@ -63,8 +65,13 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
   </div>
   <footer>
   </footer>
-  <?= $this->Html->script('jquery.js') ?>
-  <?= $this->Html->script('bootstrap.min.js') ?>
+
+  <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.js') ?>
+  <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.plugins.js') ?>
+  <?= $this->Html->script('/libs/masonry/masonry.pkgd.js') ?>
+  <?= $this->Html->script('/libs/jquery.magnific-popup/jquery.magnific-popup.js') ?>
+  <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
+
   <?= $this->fetch('bottomScript') ?>
 </body>
 </html>
