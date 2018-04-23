@@ -108,6 +108,7 @@ h5 {
     border-radius: 50%;
     width: 40px;
     height: 40px;
+    display: none;
     position: absolute;
     top: calc(50% - 20px);
     left: calc(50% - 20px);
