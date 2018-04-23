@@ -11,4 +11,8 @@
     .section-logo >div:first-child {
         border: none;
     }
+
+    .sw-main .sw-container {
+        padding: 0px;
+    }
 }

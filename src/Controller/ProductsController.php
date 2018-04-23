@@ -10,7 +10,7 @@ use Cake\ORM\TableRegistry;
  *
  * @method \App\Model\Entity\Product[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
-class ProductController extends AppController
+class ProductsController extends AppController
 {
 
     public function beforeFilter(Event $event)

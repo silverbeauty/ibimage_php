@@ -7,7 +7,8 @@
   }
   .grid-item img{ width: 100%;  max-width: 100%; border: 3px solid white; display: none;}
 
-  @media (min-width: 1200px) {
+  @media (max-width: 1200px) {
+    .grid-item { width:25%;}
   }
 
   @media (max-width: 768px) {
@@ -21,18 +22,18 @@
 
 </style>
 <?php
-$img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.de/lazy/images/2.jpg"
+$img = ["http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.de/lazy/images/2.jpg"
     , "http://jquery.eisbehr.de/lazy/images/3.jpg", "http://jquery.eisbehr.de/lazy/images/4.jpg"
     , "http://jquery.eisbehr.de/lazy/images/5.jpg", "http://jquery.eisbehr.de/lazy/images/6.jpg"
-    , "http://jquery.eisbehr.de/lazy/images/7.jpg", "http://jquery.eisbehr.de/lazy/images/8.jpg"*/
+    , "http://jquery.eisbehr.de/lazy/images/7.jpg", "http://jquery.eisbehr.de/lazy/images/8.jpg",
     $this->Url->image('sample0.jpg'), $this->Url->image('sample1.jpg')
     , $this->Url->image('sample2.jpg'), $this->Url->image('sample3.jpg')
     , $this->Url->image('sample4.jpg'), $this->Url->image('sample5.jpg')];
 ?>
 <div class="grid">
     <?php
-    for($i = 0; $i < 100; $i++): $val = 'sample' . rand(0, 15) % 15 . '.jpg';$val = rand(0, 6) % 6;
-      $url = $this->Url->build(["controller" => "Product","action" => "popup", "?" => ["photo" => $this->Url->image($img[$val]. '?t=' . microtime())]]);
+    for($i = 0; $i < 100; $i++): $val = 'sample' . rand(0, 15) % 15 . '.jpg';$val = rand(0, 14) % 14;
+      $url = $this->Url->build(["controller" => "Products","action" => "popup", "?" => ["photo" => $this->Url->image($img[$val]. '?t=' . microtime())]]);
     ?>
     <div class="grid-item" style="min-width: 200px;min-height: 200px;" href="<?= $url?>">
 
@@ -47,8 +48,7 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
     $( function() {
 
         var index = 0;
-        var $container = $('.grid');
-        $container.masonry({
+        $('.grid').masonry({
             itemSelector: '.grid-item',
             percentPosition: true
         });
@@ -59,14 +59,13 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
             threshold: 30,
             afterLoad: function(element) {
                 $(element).next().hide();
-                var $container = $('.grid');
+                $(element).parent().addClass('loaded');
                 index++;
                 if(index % 10 == 0)
                 {
-                    console.log('xxxxxxxxxxxxxxxxxxx');
                     $('.grid-item.loaded').css('min-width', '');
                     $('.grid-item.loaded').css('min-height', '');
-                    $container.masonry({
+                    $('.grid').masonry({
                         itemSelector: '.grid-item',
                         percentPosition: true
                     });

@@ -55,27 +55,6 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
           <li><a href="#">Contact Us</a></li>
           <li><a href="#">Help</a></li>
         </ul>
-        <?php if ($this->request->session()->read('Auth.User.id')):?>
-        <ul class="nav navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Admin<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-
-
-              <li><a href="#">Photos</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">Separated link</a></li>
-              <li role="separator" class="divider"></li>
-              <li><a href="#">One more separated link</a></li>
-            </ul>
-          </li>
-          <li><a href="#">Users</a></li>
-          <li><a href="#">Photos</a></li>
-          <li><a href="<?= $this->Url->build('/events', true)?>">Events</a></li>
-          <li><a href="<?= $this->Url->build('/logout', true)?>">Logout</a></li>
-        </ul>
-        <?php endif;?>
-
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

@@ -5,8 +5,57 @@
 #</IfModule>
 
 <IfModule mod_rewrite.c>
-    RewriteEngine on
-    RewriteRule    ^(\.well-known/.*)$ $1 [L]
-    RewriteRule    ^$    webroot/    [L]
-    RewriteRule    (.*) webroot/$1    [L]
+   
+   RewriteEngine on
+
+      RewriteCond %{REQUEST_URI} !^/development(?:$|/)
+      RewriteRule    ^$ app/webroot/    [L]
+
+      RewriteCond %{REQUEST_URI} !^/development(?:$|/)
+      RewriteRule    (.*) app/webroot/$1 [L]
+
+    #RewriteEngine on
+
+   #RewriteCond %{REQUEST_URI} !^/myadmin/(.*)
+   #RewriteRule    ^$ webroot/    [L]
+   #RewriteRule    (.*) webroot/$1 [L]
+
+
 </IfModule>
+
+#<IfModule mod_rewrite.c>
+
+    #RewriteCond %{REQUEST_URI} !^/phpmyadmin/(.*)
+    #RewriteRule    ^(\.well-known/.*)$ $1 [L]
+    #RewriteRule    ^$    webroot/    [L]
+    #RewriteRule    (.*) webroot/$1    [L]
+
+
+    #RewriteEngine on
+    #RewriteCond %{REQUEST_URI} ^/myadmin/(.*)
+    #RewriteRule    ^$ myadmin/    [L]
+
+
+    #RewriteEngine on
+    #RewriteCond %{REQUEST_URI} !^/myadmin/(.*)
+    #RewriteRule    ^$ webroot/    [L]
+    #RewriteRule    (.*) webroot/$1 [L]
+
+
+
+
+
+
+
+    #RewriteEngine on
+    #RewriteCond %{REQUEST_URI} !^myadmin1/(.*)
+    #RewriteRule    ^$ webroot/    [L]
+    #RewriteRule    (.*) webroot/$1 [L]
+
+    #RewriteRule    (.*) webroot/$1 [L]
+    #RewriteRule    ^$ webroot/    [L]
+    #RewriteRule    (.*) webroot/$1 [L]
+
+
+
+#</IfModule>
