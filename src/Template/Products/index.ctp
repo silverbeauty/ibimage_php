@@ -20,6 +20,8 @@
   }
 
 
+
+
 </style>
 <?php
 $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.de/lazy/images/2.jpg"
@@ -30,6 +32,17 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
     , $this->Url->image('sample2.jpg'), $this->Url->image('sample3.jpg')
     , $this->Url->image('sample4.jpg'), $this->Url->image('sample5.jpg')];
 ?>
+
+<div data-loader="rectangle"></div>
+<div class="loader"><div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div>
+  <div></div></div>
 <div class="grid">
     <?php
     for($i = 0; $i < 100; $i++): $val = 'sample' . rand(0, 15) % 15 . '.jpg';$val = rand(0, 6) % 6;
@@ -38,7 +51,7 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
     <div class="grid-item" style="min-width: 200px;min-height: 200px;" href="<?= $url?>">
 
         <img href="#" data-src="<?= $this->Url->image($img[$val]. '?t=' . microtime())?>">
-        <div class="loader"></div>
+
     </div>
     <?php endfor;?>
 </div>
@@ -80,6 +93,8 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
                     itemSelector: '.grid-item',
                     percentPosition: true
                 });
+
+                $("[data-loader='rectangle']").hide();
             }
         });
 
