@@ -17,7 +17,6 @@ $cakeDescription = 'IBImages-';
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('custom.min.css') ?>
     <?= $this->Html->css('style.css') ?>
-    <?/*= $this->Html->css('responsive.css') */?>
     <?= $this->Html->script('jquery.js') ?>
 
     <?= $this->Html->script('popper.min.js') ?>
