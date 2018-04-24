@@ -28,6 +28,32 @@ class EventsController extends AppController
         $this->set(compact('events'));
     }
 
+    public function popupFtpPhoto() {
+        $data = [
+            'photo' => $this->getRequest()->getQuery('photo'),
+            'event_name' => '2018 Senior Cup',
+            'event_date' => "Saturday 12/03/2018",
+            'field_num' => "Field 5",
+            'game_time' => "09:03",
+            'team' => "Norwest v Cronullar",
+            'winteam' => "Cronullar 1st Halve"
+        ];
+        $this->set($data);
+    }
+
+    public function popupEventPhoto() {
+        $data = [
+            'photo' => $this->getRequest()->getQuery('photo'),
+            'event_name' => '2018 Senior Cup',
+            'event_date' => "Saturday 12/03/2018",
+            'field_num' => "Field 5",
+            'game_time' => "09:03",
+            'team' => "Norwest v Cronullar",
+            'winteam' => "Cronullar 1st Halve"
+        ];
+        $this->set($data);
+    }
+
     /**
      * View method
      *

@@ -1,6 +1,6 @@
-@media (min-width: 1200px) {
+@media (min-width: 1280px) {
     .container {
-        width: 1280px;
+        max-width: 1280px;
     }
 }
 
@@ -9,7 +9,7 @@
         font-size: 14px;
     }
     .section-logo >div:first-child {
-        border: none;
+        border: none !important;
     }
 
     .sw-main .sw-container {

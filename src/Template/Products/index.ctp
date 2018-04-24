@@ -19,9 +19,6 @@
     .grid-item { width:50%;}
   }
 
-
-
-
 </style>
 <?php
 $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.de/lazy/images/2.jpg"
@@ -49,9 +46,7 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
       $url = $this->Url->build(["controller" => "Products","action" => "popup", "?" => ["photo" => $this->Url->image($img[$val]. '?t=' . microtime())]]);
     ?>
     <div class="grid-item" style="min-width: 200px;min-height: 200px;" href="<?= $url?>">
-
         <img href="#" data-src="<?= $this->Url->image($img[$val]. '?t=' . microtime())?>">
-
     </div>
     <?php endfor;?>
 </div>

@@ -64,13 +64,9 @@
         <div class="ajcol">
             <img src="<?= $photo ?>"/>
             <div style="margin-top: 30px; text-align: center">
-                <p>Share this photograph with your friends</p>
                 <div style="margin-top: 30px;">
-                    <a class="social-icon icon-facebook" data-img-url="" onclick="click_facebook(this)" id="facebook"></a>
-                    <a download class="social-icon icon-instagram" id="instagram"></a>
-                    <a class="social-icon icon-snapchat" id="snapchat"></a>
-                    <a class="social-icon icon-pinterest" data-img-url="" onclick="click_pinterest(this)" id="pinterest"></a>
-                    <a class="social-icon icon-tweet" data-img-url="" onclick="click_tweet(this)" id="tweet"></a>
+                  <button class="btn btn-primary btn-lg" data-container="body" data-toggle="popover" data-placement="top" data-content="Copy photo to the event folder">Copy</button>
+                  <button class="btn btn-secondary btn-lg"  data-container="body" data-toggle="popover" data-placement="top" data-content="Delete photo from ftp folder permanantly">Remove</button>
                 </div>
             </div>
         </div>
@@ -84,5 +80,9 @@
             </div>
         </div>
     </div>
-
 </div>
+<script>
+  $(function() {
+      $('[data-toggle="popover"]').popover();
+  });
+</script>

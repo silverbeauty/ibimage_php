@@ -64,25 +64,37 @@
         <div class="ajcol">
             <img src="<?= $photo ?>"/>
             <div style="margin-top: 30px; text-align: center">
-                <p>Share this photograph with your friends</p>
+
                 <div style="margin-top: 30px;">
-                    <a class="social-icon icon-facebook" data-img-url="" onclick="click_facebook(this)" id="facebook"></a>
-                    <a download class="social-icon icon-instagram" id="instagram"></a>
-                    <a class="social-icon icon-snapchat" id="snapchat"></a>
-                    <a class="social-icon icon-pinterest" data-img-url="" onclick="click_pinterest(this)" id="pinterest"></a>
-                    <a class="social-icon icon-tweet" data-img-url="" onclick="click_tweet(this)" id="tweet"></a>
+                  <button class="btn btn-primary btn-lg" data-container="body" data-toggle="popover" data-placement="top" data-content="Save photo metadata into photo and database">Save</button>
+                  <button class="btn btn-secondary btn-lg"  data-container="body" data-toggle="popover" data-placement="top" data-content="Delete photo from event and copy them to oroginal path">Remove</button>
                 </div>
             </div>
         </div>
         <div class="ajcol" style="line-height: 1.231;">
             <div style="padding: 1em">
-              <h5>Rockdale Beach Oztag Classic 2012</h5>
-              <p><strong>Taken Photo:</strong> 2018-04-05 22:32:33</p>
-              <p><strong>Photographer:</strong>Fred Chu</p>
-              <p><strong>Team:</strong>Oztag</p>
-              <p><strong>Opposit:</strong>Helko</p>
+              <form>
+                <div class="form-group">
+                  <?= $this->Form->text('banner1_img_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Event Name', 'default' => 'Rockdale Beach Oztag Classic 2012']) ?>
+                  <br />
+                  <?= $this->Form->text('banner1_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Team', 'default' => 'Oztag']) ?>
+                  <br />
+                    <?= $this->Form->text('banner1_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Opposit Team', 'default' => 'Sydney Top Team']) ?>
+                  <br />
+                    <?= $this->Form->text('banner1_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Field Number', 'default' => 'Field 5']) ?>
+                  <br />
+                    <?= $this->Form->text('banner1_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Who is win?', 'default' => 'Oztag']) ?>
+                  <br />
+                    <?= $this->Form->text('banner1_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Division', 'default' => '19']) ?>
+                </div>
+              </form>
             </div>
         </div>
     </div>
 
 </div>
+<script>
+    $(function() {
+        $('[data-toggle="popover"]').popover();
+    });
+</script>

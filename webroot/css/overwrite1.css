@@ -1,0 +1,84 @@
+.input-group[class*=col-] {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+input, select, textarea {
+    color: black;
+}
+
+nav.navbar {
+    border-radius: 0;
+    border: none;
+    color: white;
+    padding: 20px 0;
+}
+.navbar-default {
+    background-color: #000000;
+}
+
+.navbar-default .navbar-brand {
+    color: white;
+    font-weight: bold;
+    font-size: 3rem;
+}
+.navbar-default a {
+    color: #888888;
+}
+
+.navbar-default .navbar-nav>.active>a, .navbar-default .navbar-nav>.active>a:focus, .navbar-default .navbar-nav>.active>a:hover {
+    color: white;
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    background-color: transparent;
+    color: white;
+    cursor: pointer;
+    -webkit-transition: all 300ms ease-in-out;
+    -moz-transition: all 300ms ease-in-out;
+    -ms-transition: all 300ms ease-in-out;
+    -o-transition: all 300ms ease-in-out;
+    transition: all 300ms ease-in-out;
+    outline: 0;
+
+}
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+    color: white;
+}
+.btn {
+    border-radius: 0;
+    background-color: #34373d;
+    border-color: #444951;
+    color: #8a8d93;
+}
+
+.btn-default:hover {
+    background-color: #34373d;
+    color: white;
+}
+.input-group-btn>.btn:active, .input-group-btn>.btn:focus, .input-group-btn>.btn:hover {
+    background-color: #34373d !important;
+    color: white !important;
+}
+.navbar-nav>li>.dropdown-menu{
+    background-color: #282828;
+}
+
+.dropdown-menu{
+    background-color: #34373d;
+}
+.open>.dropdown-toggle.btn-default {
+    background-color: #34373d;
+    color: #8a8d93 !important;
+}
+
+.btn-default.active.focus, .btn-default.active:focus, .btn-default.active:hover, .btn-default:active.focus, .btn-default:active:focus, .btn-default:active:hover, .open>.dropdown-toggle.btn-default.focus, .open>.dropdown-toggle.btn-default:focus, .open>.dropdown-toggle.btn-default:hover {
+    color: white;
+    background-color: #34373d;
+    border-color: #444951;
+}
+
+.d-flex {
+    display: flex;
+}
