@@ -72,7 +72,10 @@
             </div>
         </div>
         <div class="ajcol" style="line-height: 1.231;">
+
+
             <div style="padding: 1em">
+              <h4>Photo metadata</h4>
               <form>
                 <div class="form-group">
                   <?= $this->Form->text('banner1_img_url', ['class' => 'form-control', 'autocomplete' => 'off', 'placeholder' => 'Event Name', 'default' => 'Rockdale Beach Oztag Classic 2012']) ?>
