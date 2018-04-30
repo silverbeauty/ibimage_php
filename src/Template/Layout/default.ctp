@@ -15,12 +15,14 @@ $cakeDescription = 'IBImages-';
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
+    <?= $this->Html->css('/libs/jquery.datatables/datatables.css') ?>
     <?= $this->Html->css('custom.min.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->script('jquery.js') ?>
-
     <?= $this->Html->script('popper.min.js') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>
+    <?= $this->Html->script('/libs/jquery.datatables/datatables.js') ?>
+
 
 </head>
 <body>

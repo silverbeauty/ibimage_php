@@ -252,7 +252,7 @@ return [
              */
             //'port' => 'non_standard_port_number',
             'username' => 'root',
-            'password' => 'Ianben123',
+            'password' => '',
             'database' => 'ibimagesinfo',
             /*
              * You do not need to set this flag to use full utf-8 encoding (internal default since CakePHP 3.6).
@@ -382,5 +382,11 @@ return [
 
     'Error' => [
        'errorLevel' => E_ALL & ~E_DEPRECATED & ~E_USER_DEPRECATED,
+    ],
+
+    'Roles' => [
+        'admin' => 'Administrator',
+        'client' => 'Client',
+        'event' => 'Event Creator',
     ]
 ];
