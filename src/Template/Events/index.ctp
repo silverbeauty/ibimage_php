@@ -1,5 +1,12 @@
+<div class="page-header">
+  <div class="row">
+    <div class="col-lg-12">
+      <h1>Events</h1>
+    </div>
+  </div>
+</div>
+
 <div class="block margin-bottom-sm">
-  <div class="title"><strong>My Events</strong></div>
   <div class="table-responsive">
     <table class="table">
       <thead>
@@ -26,10 +33,10 @@
         <td>Karmen</td>
         <td>19</td>
         <td>Field 23</td>
-        <td><a class="btn" href="<?=$this->Url->build(['controller' => 'events','action' => 'edit'])?>">Edit</a>&nbsp;&nbsp;<a class="btn">Delete</a></td>
+        <td><a class="btn btn-secondary" href="<?=$this->Url->build(['controller' => 'events','action' => 'edit'])?>">Edit</a>
+          &nbsp;&nbsp;<a class="btn btn-secondary">Delete</a></td>
       </tr>
       <?php endfor;?>
-
       </tbody>
     </table>
   </div>

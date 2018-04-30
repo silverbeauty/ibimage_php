@@ -48,7 +48,7 @@ class AuthController extends AppController
 
     public function logout()
     {
-        $this->request->session()->destroy();
+        $this->getRequest()->getSession()->destroy();
         $this->Flash->success(__('Session closed'));
         return $this->redirect($this->Auth->logout());
     }

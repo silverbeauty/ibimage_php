@@ -44,9 +44,10 @@ $cakeDescription = 'IBImages-';
       </ul>
       <?php if ($this->request->session()->read('Auth.User.id')):?>
       <ul class="nav navbar-nav ml-auto">
-          <li class="nav-item"><a class="nav-link" href="#">Users</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/users', true)?>">Users</a></li>
           <li class="nav-item"><a class="nav-link" href="#">Photos</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/events', true)?>">Events</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/options', true)?>">Options</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/logout', true)?>">Logout</a></li>
       </ul>
       <?php endif;?>

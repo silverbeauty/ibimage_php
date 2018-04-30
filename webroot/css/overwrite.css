@@ -162,3 +162,19 @@ input[type=checkbox] {
 .nav-tabs .nav-link {
     border-radius: 0;
 }
+
+select.form-control option {
+    background-color: #282828;
+    color: white;
+    margin: 10px 0;
+    padding: 10px;
+    height: 40px;
+    font-size: 1rem;
+}
+.dropdown-menu {
+    border-radius: 0;
+}
+
+.btn-secondary:focus {
+    box-shadow: none !important;
+}

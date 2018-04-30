@@ -41,6 +41,7 @@ class User extends Entity
         'telephone' => true,
         'event_shares' => true,
         'events' => true,
+        'ftp_root_path' => true,
         'photos' => true
     ];
 

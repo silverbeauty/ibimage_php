@@ -214,3 +214,7 @@ footer {
         box-shadow: 0 -20px #fff;
     }
 }
+
+.page-header {
+    margin-bottom: 20px;
+}

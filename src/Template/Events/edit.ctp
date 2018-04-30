@@ -324,6 +324,20 @@
         </div>
       </div>
     </div>
+    <div id="step-5" class="">
+      <div class="form-group row">
+          <?= $this->Form->label('username', 'User Name', ['class' => 'col-sm-2 control-label'])?>
+        <div class="col-sm-10">
+            <?= $this->Form->text('username', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+        </div>
+      </div>
+      <div class="form-group row">
+          <?= $this->Form->label('password', 'Password', ['class' => 'col-sm-2 control-label'])?>
+        <div class="col-sm-10">
+            <?= $this->Form->text('password', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 <script>

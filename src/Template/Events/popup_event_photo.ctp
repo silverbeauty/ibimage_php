@@ -72,8 +72,6 @@
             </div>
         </div>
         <div class="ajcol" style="line-height: 1.231;">
-
-
             <div style="padding: 1em">
               <h4>Photo metadata</h4>
               <form>
