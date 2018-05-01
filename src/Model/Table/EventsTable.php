@@ -99,11 +99,11 @@ class EventsTable extends Table
         $validator
             ->boolean('is_approved')
             ->requirePresence('is_approved', 'create')
-            ->notEmpty('is_approved');
+            ->allowEmpty('is_approved');
 
         $validator
-            ->integer('parent')
-            ->allowEmpty('parent');
+            ->integer('parent_id')
+            ->allowEmpty('parent_id');
 
         return $validator;
     }

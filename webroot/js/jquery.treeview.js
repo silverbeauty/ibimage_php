@@ -5,7 +5,8 @@
     }
     var defaults = {
         debug : false,
-        autoExpand : false,
+        autoExpand : true,
+        isSingle : false,
         css : {
             list : 'fa-ul',
             listItem : 'fa-li fa',
@@ -34,7 +35,16 @@
         
         if (isChecked) {
             debug.log('Check my parents tree');
-            
+
+            if(settings.isSingle) {
+                me.find('input.tw-control')
+                    .prop('checked', false);
+                currentTarget.prop('checked', true);
+            }
+
+
+
+
             /*currentTarget.parents('li')
                          .find('>input.tw-control')
                          .prop('checked', true);*/
@@ -47,8 +57,6 @@
     
     function _toggleCollapse ( element ) {
         debug.log("Toggle collapse");
-
-        console.log(element);
         var chk = $('input[type="checkbox"]:checked');
         
         if (chk.is(':checked')) {
@@ -184,7 +192,6 @@
             
             chk.each(function(index, item) {
                 var item = $(item);
-                
                 if(typeof item.parent().attr('data-value') !== typeof undefined) {
                     output.push(item.attr('value'));
                 }

@@ -40,14 +40,14 @@
         <?= $this->Form->select('role', \Cake\Core\Configure::read('Roles'), ['class'=>"form-control dropdown-select"]);?>
     </div>
 </div>
-
+<!--
 <div class="form-group row">
-    <?= $this->Form->label('ftp_root_path', 'Ftp path', ['class' => 'col-sm-2 control-label'])?>
+    <?/*= $this->Form->label('ftp_root_path', 'Ftp path', ['class' => 'col-sm-2 control-label'])*/?>
   <div class="col-sm-10">
-      <?= $this->Form->select('ftp_root_path', $ftp_dirs, ['class'=>"form-control"]);?>
+      <?/*= $this->Form->select('ftp_root_path', $ftp_dirs, ['class'=>"form-control"]);*/?>
 
   </div>
-</div>
+</div>-->
 
 <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">

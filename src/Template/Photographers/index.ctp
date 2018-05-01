@@ -4,7 +4,7 @@
             <h3>Users</h3>
         </div>
         <div class="col-6 text-right">
-          <a href="<?= $this->Url->build('users/add')?>" class="btn btn-secondary">New</a>
+          <a href="<?= $this->Url->build('photographers/add')?>" class="btn btn-secondary">New</a>
           <button class="btn btn-secondary" id="del-user">Remove</button>
         </div>
     </div>
@@ -16,28 +16,24 @@
             <thead>
             <tr>
                 <th>#</th>
-                <th>User name</th>
-                <th>Email Address</th>
-                <th>User Id</th>
-                <th>Role</th>
+                <th>Code name</th>
+                <th>Photographer name</th>
                 <th>Action</th>
             </tr>
             </thead>
             <tbody>
-            <?php $roles = \Cake\Core\Configure::read('Roles'); $index = 0; foreach ($users as $user) : $index++?>
+            <?php $index = 0; foreach ($users as $user) : $index++?>
                 <tr>
                     <th scope="row" style="word-break: normal; white-space: nowrap"><?= $this->Form->checkbox('chk_users[]', ['value' => $user->id]) ?><?= $index ?></th>
-                    <td><?= $user->full_name ?></td>
-                    <td><?= $user->email ?></td>
-                    <td><?= $user->username ?></td>
-                    <td><?= $roles[$user->role] ?></td>
+                    <td><?= $user->code ?></td>
+                    <td><?= $user->name ?></td>
                     <td>
                       <div class="dropdown">
                         <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                           Action
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <a class="dropdown-item btn btn-secondary" href="<?=$this->Url->build(['controller' => 'users','action' => 'edit', $user->id])?>">Edit</a>
+                          <a class="dropdown-item btn btn-secondary" href="<?=$this->Url->build(['controller' => 'photographers','action' => 'edit', $user->id])?>">Edit</a>
                           <a class="dropdown-item btn btn-secondary">Delete</a>
                         </div>
                       </div>
@@ -55,7 +51,7 @@
         $('#user-table').DataTable();
 
         $('#del-user').click(function() {
-            var result = confirm('Are you sure to delete selected users?');
+            var result = confirm('Are you sure to delete selected photographers?');
             if(result) {
                 $('#user-form').submit();
             }

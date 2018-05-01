@@ -47,7 +47,7 @@ $cakeDescription = 'IBImages-';
       <?php if ($this->request->session()->read('Auth.User.id')):?>
       <ul class="nav navbar-nav ml-auto">
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/users', true)?>">Users</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Photos</a></li>
+          <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/photographers', true)?>">Photographers</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/events', true)?>">Events</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/options', true)?>">Options</a></li>
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/logout', true)?>">Logout</a></li>
@@ -71,8 +71,10 @@ $cakeDescription = 'IBImages-';
   <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.plugins.js') ?>
   <?= $this->Html->script('/libs/masonry/masonry.pkgd.js') ?>
   <?= $this->Html->script('/libs/jquery.magnific-popup/jquery.magnific-popup.js') ?>
+  <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js') ?>
   <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
-<?= $this->Html->script('scripts.js') ?>
+
+  <?= $this->Html->script('scripts.js') ?>
   <?= $this->fetch('bottomScripts') ?>
 </body>
 

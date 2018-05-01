@@ -88,4 +88,16 @@ class UsersController extends AppController
         }
         $this->set(compact('user','ftp_dirs'));
     }
+
+    /**
+     * Delete users
+     */
+    public function del() {
+        $checkedUsers = $this->getRequest()->getData('chk_users');
+        $this->Users->deleteAll(['id IN' => $checkedUsers]);
+        //var_dump(implode(',', $checkedUsers));
+        return $this->redirect(['action' => 'index']);
+
+
+    }
 }

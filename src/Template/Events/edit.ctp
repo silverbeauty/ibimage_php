@@ -18,10 +18,6 @@
   @media (max-width: 576px) {
     .grid-item { width:50%;}
   }
-
-
-
-
 </style>
 
 <?php $this->Html->script(['/libs/jquery.smart-wizard/js/jquery.smart-wizard.min.js'], ['block' => 'bottomScripts']) ?>
@@ -29,8 +25,6 @@
 <?php $this->Html->script(['jquery.treeview.js'], ['block' => 'bottomScripts']) ?>
 <?php $this->Html->css(['/libs/jquery.smart-wizard/css/smart_wizard.css'], ['block' => 'css']) ?>
 <?php $this->Html->css(['/libs/jquery.smart-wizard/css/smart_wizard_theme_arrows.css'], ['block' => 'css']) ?>
-<?= $this->Form->create("events", ['class' => 'form-horizontal']) ?>
-
 <style>
   #treeview-checkbox-demo span {
     margin-left: 12px;
@@ -43,7 +37,7 @@
 </style>
 <div id="smartwizard">
   <ul>
-    <li><a href="#step-1">Step 1<br /><small>Edit an Evemt</small></a></li>
+    <li><a href="#step-1">Step 1<br /><small>Edit an Event</small></a></li>
     <li><a href="#step-2">Step 2<br /><small>Price and Size</small></a></li>
     <li><a href="#step-3">Step 3<br /><small>Upload Photos</small></a></li>
     <li><a href="#step-4">Step 4<br /><small>Advertising</small></a></li>
@@ -51,82 +45,132 @@
   </ul>
   <div>
     <div id="step-1" class="">
+        <?= $this->Form->create($event) ?>
+        <?= $this->Form->hidden('id') ?>
+        <input name="step" value="basic" type="hidden">
       <div class="form-group row">
           <?= $this->Form->label('parent', 'Parent Event', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('parent', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <div class="dropdown">
+                <button id="dLabel" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose Parent Event
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dLabel">
+                    <div id="parent-event" class="tree-event">
+                        <ul>
+                            <?php $this->Tree->toTreeAsCallback($events, [], function($row, $deep, $index) {
+                            ?>
+                            <li data-value="<?= $row['id']?>"><span><?= $row['name']?></span>
+                                <?php })?>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <?=$this->Form->text('parent_id', ['class' => 'form-control d-none', 'autocomplete' => 'off']) ?>
         </div>
       </div>
       <div class="form-group row">
           <?= $this->Form->label('name', 'Name', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('name', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->text('name', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+            <div class="help-block with-errors"></div>
         </div>
       </div>
       <div class="form-group row">
           <?= $this->Form->label('place', 'Place', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('place', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->text('place', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+            <div class="help-block with-errors"></div>
         </div>
       </div>
-      <div class="form-group row">
-          <?= $this->Form->label('started', 'Started', ['class' => 'col-sm-2 control-label'])?>
-        <div class="col-sm-10">
-            <?= $this->Form->text('started', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                <?= $this->Form->label('started', 'Started', ['class' => 'col-sm-4 control-label'])?>
+                <div class="col-sm-8">
+                    <?= $this->Form->text('started', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+                    <div class="help-block with-errors"></div>
+                </div>
+
+                </div>
+
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                <?= $this->Form->label('ended', 'Ended', ['class' => 'col-sm-4 control-label'])?>
+                <div class="col-sm-8">
+                    <?= $this->Form->text('ended', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+                    <div class="help-block with-errors"></div>
+                </div>
+                </div>
+            </div>
         </div>
-      </div>
-      <div class="form-group row">
-          <?= $this->Form->label('ended', 'Ended', ['class' => 'col-sm-2 control-label'])?>
-        <div class="col-sm-10">
-            <?= $this->Form->text('ended', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
-        </div>
-      </div>
+
+
       <div class="form-group row">
           <?= $this->Form->label('description', 'Description', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->textarea('description', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->textarea('description', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
         </div>
       </div>
 
-      <div class="form-group row">
-          <?= $this->Form->label('team1', 'Team A', ['class' => 'col-sm-2 control-label'])?>
-        <div class="col-sm-10">
-            <?= $this->Form->text('team1', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+        <div class="row">
+            <div class="col-sm-6">
+                <div class="form-group row">
+                  <?= $this->Form->label('team1', 'Team A', ['class' => 'col-sm-4 control-label'])?>
+                    <div class="col-sm-8">
+                        <?= $this->Form->text('team1', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+                        <div class="help-block with-errors"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group row">
+                  <?= $this->Form->label('team2', 'Team B', ['class' => 'col-sm-4 control-label'])?>
+                  <div class="col-sm-8">
+                      <?= $this->Form->text('team2', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+                      <div class="help-block with-errors"></div>
+                  </div>
+                </div>
+            </div>
+
         </div>
-      </div>
-      <div class="form-group row">
-          <?= $this->Form->label('team2', 'Team B', ['class' => 'col-sm-2 control-label'])?>
-        <div class="col-sm-10">
-            <?= $this->Form->text('team2', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
-        </div>
-      </div>
+
       <div class="form-group row">
           <?= $this->Form->label('division', 'Division', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('division', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->text('division', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+            <div class="help-block with-errors"></div>
         </div>
       </div>
       <div class="form-group row">
           <?= $this->Form->label('association', 'Association', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('association', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->text('association', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+            <div class="help-block with-errors"></div>
         </div>
       </div>
       <div class="form-group row">
           <?= $this->Form->label('gender', 'Gender', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('gender', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->text('gender', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+            <div class="help-block with-errors"></div>
         </div>
       </div>
       <div class="form-group row">
           <?= $this->Form->label('field_num', 'Field Name', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10">
-            <?= $this->Form->text('field_num', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
+            <?= $this->Form->text('field_num', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+            <div class="help-block with-errors"></div>
         </div>
       </div>
-
+        <?= $this->Form->end()?>
     </div>
     <div id="step-2" class="">
+        <?= $this->Form->create($event) ?>
+        <?= $this->Form->hidden('id') ?>
+        <input name="step" value="price" type="hidden">
       <div class="form-group row">
           <?= $this->Form->label('a5', 'A5', ['class' => 'col-sm-2 control-label'])?>
         <div class="col-sm-10 input-group">
@@ -184,7 +228,7 @@
           </div><!-- /btn-group -->
         </div>
       </div>
-
+        <?= $this->Form->end()?>
     </div>
     <div id="step-3" class="">
 
@@ -205,34 +249,12 @@
                   Choose Ftp Folders
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dLabel">
-                  <div id="treeview-checkbox-demo">
-
+                  <div class="tree-event">
                     <ul>
-                      <li data-value="html"><span>2018 Junior State Championships</span>
-                        <ul>
-                          <li data-value="table"><span>	Friday</span></li>
-                          <li data-value="links"><span>Saturday</span></li>
-                        </ul>
-                      </li>
-                      <li><span>2018 Senior State Championships</span>
-                        <ul>
-                          <li data-value="PHP if..else"><span>Friday</span></li>
-                          <li data-value="PHP Loops"><span>	Sunday</span>
-                            <ul>
-                              <li data-value="For loop"><span>GIRLS 17</span></li>
-                              <li data-value="While loop"><span>BOYS 16</span></li>
-                              <li data-value="Do WHile loop"><span>BOYS 19</span></li>
-                            </ul>
-                          </li>
-                          <li><span>OZTAG Events</span></li>
-                        </ul>
-                      </li>
-                      <li><span>2018 Sydney Oztag 10s Cup</span>
-                        <ul>
-                          <li data-value="jQuery append"><span>	NSW Junior State Cup 2012</span></li>
-                          <li data-value="jQuery prepend"><span>Rockdale Beach Oztag Classic 2012</span></li>
-                        </ul>
-                      </li>
+                        <?php $this->Tree->toTreeAsCallback($events, [], function($row, $deep, $index) {
+                        ?>
+                        <li data-value="<?= $row['id']?>"><span><?= $row['name']?></span>
+                        <?php })?>
                     </ul>
                   </div>
                 </div>
@@ -286,8 +308,6 @@
           </div>
 
         </div>
-
-
       </div>
     </div>
     <div id="step-4" class="">
@@ -353,6 +373,50 @@
             }
         });
 
+        $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+            var elmForm = $("#step-" + (stepNumber + 1));
+
+            if(stepNumber == 0) {
+                // parent id setting:
+                elmForm.find('input[name=parent_id]').val($('#parent-event input:checked').val() || '');
+            }
+            console.log(elmForm);
+            if(stepDirection === 'forward' && elmForm){
+                elmForm.validator('validate');
+                var elmErr = elmForm.children('.has-error');
+                if(elmErr && elmErr.length > 0){
+                    // Form validation failed
+                    return false;
+                } else {
+
+                    <?php
+                    if(empty($event['id'])):
+                    ?>
+                    var url = "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>";
+                    <?php else : ?>
+                    var url = "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>";
+                    <?php endif;?>
+
+                    var url = "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>";
+
+
+
+                    console.log(elmForm.find('form'));
+                    var data = getFormDataAsJson(elmForm.find('form'));
+                    $.ajax({
+                        method: "POST",
+                        url: "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>",
+                        data: data,
+                    })
+                        .done(function( msg ) {
+                            alert( "Data Saved: " + msg );
+                        });
+                }
+            }
+            return true;
+        });
+
+
         $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
             $('.grid').masonry({
                 itemSelector: '.grid-item',
@@ -369,22 +433,19 @@
                 });
             }
         });*/
-        $('#treeview-checkbox-demo').treeview({
+        $('#parent-event').treeview({
             debug : true,
-            data : ['html', 'links', 'Do WHile loop']
+            isSingle: true,
+            data : ['']
         });
 
-        $('#treeview-checkbox-demo').click(function(e) {
+        $('.tree-event').click(function(e) {
            e.stopPropagation();
            return true;
         });
 
         var index = 0;
-        /*$('.grid').masonry({
-            itemSelector: '.grid-item',
-            percentPosition: true
-        });
-*/
+
         $('.grid-item img').lazy({
             effect: "fadeIn",
             effectTime: 2000,
@@ -429,6 +490,8 @@
                 enabled: true
             }
         });
+
+        $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd hh:ii'});
 
     });
 </script>

@@ -23,7 +23,10 @@ class EventsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
-        $events = $this->paginate($this->Events);
+        //$events = $this->paginate($this->Events->find()->toArray());
+        $events = $this->Events->find()->toArray();
+
+        $events = $this->Util->toTreeArray($events);
 
         $this->set(compact('events'));
     }
@@ -77,9 +80,11 @@ class EventsController extends AppController
      */
     public function add()
     {
+        $ownerId = $this->Auth->user('id');
         $event = $this->Events->newEntity();
         if ($this->request->is('post')) {
             $event = $this->Events->patchEntity($event, $this->request->getData());
+            $event->user_id = $ownerId;
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
@@ -87,8 +92,14 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $users = $this->Events->Users->find('list', ['limit' => 200]);
-        $this->set(compact('event', 'users'));
+
+        $events = $this->Events->find()->toArray();
+
+        $events = $this->Util->toTreeArray($events);
+
+        $this->set(compact('events', 'event'));
+
+        $this->render('edit');
     }
 
     /**
@@ -100,11 +111,11 @@ class EventsController extends AppController
      */
     public function edit($id = null)
     {
-        /*$event = $this->Events->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
+        $ownerId = $this->Auth->user('id');
+        $event = $this->Events->newEntity();
+        if ($this->request->is('post')) {
             $event = $this->Events->patchEntity($event, $this->request->getData());
+            $event->user_id = $ownerId;
             if ($this->Events->save($event)) {
                 $this->Flash->success(__('The event has been saved.'));
 
@@ -112,8 +123,42 @@ class EventsController extends AppController
             }
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
-        $users = $this->Events->Users->find('list', ['limit' => 200]);
-        $this->set(compact('event', 'users'));*/
+
+
+        $this->set(compact('event'));
+        $this->render('edit');
+    }
+
+    public function save() {
+
+        $step = $this->getRequest()->getData('step');
+        $id = $this->getRequest()->getData('id');
+
+        if($step == 'basic') {
+            // saving basic data
+
+
+
+            if($id) {
+                $event = $this->Events->findById($id)->first();
+                $ownerId = $this->Auth->user('id');
+                $event->user_id = $ownerId;
+            } else {
+                $event = $this->Events->newEntity();
+            }
+
+            $event = $this->Events->patchEntity($event, $this->getRequest()->getData());
+
+            var_dump($event);
+
+            if($this->Events->save($event)) {
+                $this->Flash->success('Event has been saved');
+            }
+
+        }
+
+        die;
+
     }
 
     /**
@@ -135,4 +180,42 @@ class EventsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+    public function addEvent() {
+
+        $ownerId = $this->Auth->user('id');
+        $event = $this->Events->newEntity();
+        if ($this->request->is('post')) {
+            $event = $this->Events->patchEntity($event, $this->request->getData());
+            $event->user_id = $ownerId;
+            if ($this->Events->save($event)) {
+                $this->Flash->success(__('The event has been saved.'));
+
+                return $this->redirect(['action' => 'index']);
+            }
+            $this->Flash->error(__('The event could not be saved. Please, try again.'));
+        }
+
+
+        $this->set(compact('event'));
+        $this->render('edit');
+    }
+
+    public function editEvent() {
+
+    }
+
+
+    public function saveBaisc() {
+
+    }
+
+    public function savePrices() {
+
+    }
+
+    public function saveAdvertising() {
+
+    }
+
 }

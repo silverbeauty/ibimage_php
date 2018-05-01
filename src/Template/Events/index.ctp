@@ -1,14 +1,24 @@
 <div class="page-header">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1>Events</h1>
+    <div class="row">
+        <div class="col-lg-6">
+            <h3>Events</h3>
+        </div>
+        <div class="col-6 text-right">
+            <a href="<?= $this->Url->build('events/add')?>" class="btn btn-secondary">New</a>
+            <button class="btn btn-secondary" id="del-user">Remove</button>
+        </div>
     </div>
-  </div>
 </div>
 
+
+<?php
+
+    //echo $this->Tree->toHtmlByUl($events);
+?>
 <div class="block margin-bottom-sm">
   <div class="table-responsive">
-    <table class="table">
+
+    <table class="table" id="event-table">
       <thead>
       <tr>
         <th>#</th>
@@ -23,21 +33,41 @@
       </tr>
       </thead>
       <tbody>
-      <?php for ($i = 0; $i < 40; $i++) :?>
-      <tr>
-        <th scope="row"><?=$i + 1 ?></th>
-        <td>2018 Cricket Cup Champion</td>
-        <td>2018-12-02 02:00</td>
-        <td>2018-04-02 02:00</td>
-        <td>Hanao</td>
-        <td>Karmen</td>
-        <td>19</td>
-        <td>Field 23</td>
-        <td><a class="btn btn-secondary" href="<?=$this->Url->build(['controller' => 'events','action' => 'edit'])?>">Edit</a>
-          &nbsp;&nbsp;<a class="btn btn-secondary">Delete</a></td>
-      </tr>
-      <?php endfor;?>
+      <?php $this->Tree->toHtmlAsCallback($events, [], function($row, $deep, $index) {
+          ?>
+          <tr>
+              <th scope="row"><?= $this->Form->checkbox('chk_users[]', ['value' => $row->id]) ?><?=$index?></th>
+              <td><?php /*if ($deep != 0) :
+                      echo str_repeat('&nbsp;&nbsp;&nbsp;', $deep) . '|' . str_repeat('---', $deep);
+                      endif;
+                      */?>
+                <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $deep) . $row['name']?></td>
+              <td><?=$row['started']?></td>
+              <td><?=$row['ended']?></td>
+              <td>Hanao</td>
+              <td>Karmen</td>
+              <td>19</td>
+              <td>Field 23</td>
+              <td><a class="btn btn-secondary" href="<?=$this->Url->build(['controller' => 'events','action' => 'edit', $row['id']])?>">Edit</a>
+                  &nbsp;&nbsp;<a class="btn btn-secondary">Delete</a></td>
+          </tr>
+          <?php
+      })?>
       </tbody>
     </table>
   </div>
 </div>
+
+<script>
+    $(function() {
+        $('#event-table').DataTable();
+
+        $('#del-user').click(function() {
+            var result = confirm('Are you sure to delete selected users?');
+            if(result) {
+                $('#user-form').submit();
+            }
+
+        });
+    });
+</script>

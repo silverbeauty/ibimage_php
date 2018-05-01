@@ -178,3 +178,27 @@ select.form-control option {
 .btn-secondary:focus {
     box-shadow: none !important;
 }
+
+.dropdown-menu.show {
+    border-width: 1px;
+    height: 30vh;
+    width: 100%;
+    scroll: auto;
+}
+.treeview li{
+    white-space: nowrap;
+    word-break: normal;
+}
+.treeview input:checked + span, .treeview input:checked + i + span {
+    font-weight: bold;
+    color: white;
+}
+
+.help-block.with-errors {
+    color: white;
+    font-size: 0.9em;
+}
+
+.list-unstyled {
+    margin-bottom: 0;
+}

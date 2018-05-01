@@ -45,6 +45,7 @@ class AppController extends Controller
         $this->loadComponent('Flash');
         $this->loadComponent('File');
         $this->loadComponent('Option');
+        $this->loadComponent('Util');
 
 
         $this->loadComponent('Auth', [
