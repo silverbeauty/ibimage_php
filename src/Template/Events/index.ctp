@@ -37,10 +37,7 @@
           ?>
           <tr>
               <th scope="row"><?= $this->Form->checkbox('chk_users[]', ['value' => $row->id]) ?><?=$index?></th>
-              <td><?php /*if ($deep != 0) :
-                      echo str_repeat('&nbsp;&nbsp;&nbsp;', $deep) . '|' . str_repeat('---', $deep);
-                      endif;
-                      */?>
+              <td>
                 <?php echo str_repeat('&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;', $deep) . $row['name']?></td>
               <td><?=$row['started']?></td>
               <td><?=$row['ended']?></td>

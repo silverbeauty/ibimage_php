@@ -16,12 +16,14 @@ $cakeDescription = 'IBImages-';
     <?= $this->fetch('script') ?>
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('/libs/jquery.datatables/datatables.css') ?>
+    <?= $this->Html->css('/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css') ?>
     <?= $this->Html->css('custom.min.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->script('jquery.js') ?>
     <?= $this->Html->script('popper.min.js') ?>
     <?= $this->Html->script('bootstrap.min.js') ?>
     <?= $this->Html->script('/libs/jquery.datatables/datatables.js') ?>
+    <?= $this->Html->script('/libs/bootstrap-datetimepicker/js/bootstrap-datetimepicker.js') ?>
 
 
 </head>
@@ -73,7 +75,6 @@ $cakeDescription = 'IBImages-';
   <?= $this->Html->script('/libs/jquery.magnific-popup/jquery.magnific-popup.js') ?>
   <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js') ?>
   <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
-
   <?= $this->Html->script('scripts.js') ?>
   <?= $this->fetch('bottomScripts') ?>
 </body>

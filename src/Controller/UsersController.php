@@ -73,7 +73,6 @@ class UsersController extends AppController
      */
     public function edit($id)
     {
-
         $ftp_dirs = $this->File->getDirectories($this->ftpRootPath);
 
         $user = $this->Users->findById($id)->first();

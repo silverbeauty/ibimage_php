@@ -26,6 +26,16 @@ use Cake\Validation\Validator;
 class EventsTable extends Table
 {
 
+    public function beforeSave($event, $entity, $options)
+    {
+        if($entity->is_approved) {
+            $entity->is_approved = 1;
+        } else {
+            $entity->is_approved = 0;
+        }
+
+        return true;
+    }
     /**
      * Initialize method
      *

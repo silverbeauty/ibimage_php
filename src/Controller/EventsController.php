@@ -23,6 +23,9 @@ class EventsController extends AppController
         $this->paginate = [
             'contain' => ['Users']
         ];
+
+
+
         //$events = $this->paginate($this->Events->find()->toArray());
         $events = $this->Events->find()->toArray();
 
@@ -112,20 +115,10 @@ class EventsController extends AppController
     public function edit($id = null)
     {
         $ownerId = $this->Auth->user('id');
-        $event = $this->Events->newEntity();
-        if ($this->request->is('post')) {
-            $event = $this->Events->patchEntity($event, $this->request->getData());
-            $event->user_id = $ownerId;
-            if ($this->Events->save($event)) {
-                $this->Flash->success(__('The event has been saved.'));
-
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The event could not be saved. Please, try again.'));
-        }
-
-
-        $this->set(compact('event'));
+        $event = $this->Events->findById($id)->first();
+        $events = $this->Events->find()->toArray();
+        $events = $this->Util->toTreeArray($events);
+        $this->set(compact('events', 'event'));
         $this->render('edit');
     }
 
@@ -136,9 +129,6 @@ class EventsController extends AppController
 
         if($step == 'basic') {
             // saving basic data
-
-
-
             if($id) {
                 $event = $this->Events->findById($id)->first();
                 $ownerId = $this->Auth->user('id');
@@ -148,13 +138,11 @@ class EventsController extends AppController
             }
 
             $event = $this->Events->patchEntity($event, $this->getRequest()->getData());
-
-            var_dump($event);
-
             if($this->Events->save($event)) {
-                $this->Flash->success('Event has been saved');
+                echo ('Event has been saved');
+            } else {
+                echo ('Event has not saved');
             }
-
         }
 
         die;

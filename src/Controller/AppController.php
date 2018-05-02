@@ -48,6 +48,11 @@ class AppController extends Controller
         $this->loadComponent('Util');
 
 
+        \Cake\I18n\Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
+        \Cake\I18n\FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
+        \Cake\I18n\Date::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable Date
+        \Cake\I18n\FrozenDate::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable Date
+
         $this->loadComponent('Auth', [
             'loginAction' => '/',
             'logoutRedirect' => ['controller' => 'Auth', 'action' => 'login'],

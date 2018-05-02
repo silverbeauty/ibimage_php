@@ -24,21 +24,22 @@ class TreeHelper extends CommonHelper
             $index++;
             $callback($item, $deep, $index);
             if (!empty($item[$options['children']])) {
-                $deep++;
                 $this->_toHtmlAsCallback($item[$options['children']], $callback, $options, $index, $deep);
             }
         }
     }
 
     private function _toHtmlAsCallback($items, $callback, $options, &$index, $deep) {
+        $deep++;
         foreach ($items as $item) {
             $index++;
             $callback($item, $deep, $index);
             if (!empty($item[$options['children']])) {
-                $deep++;
-                $this->_toHtmlAsCallback($item[$options['children']], $callback, $options, $index, $deep++);
+                $this->_toHtmlAsCallback($item[$options['children']], $callback, $options, $index, $deep);
             }
         }
+
+
     }
 
     public function toTreeAsCallback($items, $options, $callback) {

@@ -202,3 +202,13 @@ select.form-control option {
 .list-unstyled {
     margin-bottom: 0;
 }
+
+.datetimepicker table tr td.day:hover {
+    color: darkblue;
+}
+.datetimepicker thead tr:first-child th:hover, .datetimepicker tfoot tr:first-child th:hover {
+    color: darkblue;
+}
+.datetimepicker table tr td span:hover {
+    color: darkblue;
+}

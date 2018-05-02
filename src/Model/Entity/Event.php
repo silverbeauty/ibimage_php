@@ -43,12 +43,29 @@ class Event extends Entity
         'started' => true,
         'ended' => true,
         'is_approved' => true,
-        'parent' => true,
+        'parent_id' => true,
         'user_id' => true,
+        'team1' => true,
+        'team2' => true,
+        'division' => true,
+        'association' => true,
+        'gender' => true,
+        'field_num' => true,
+
         'user' => true,
         'event_metas' => true,
         'event_shares' => true,
         'photo_shares' => true,
         'photos' => true
     ];
+
+    public function _getStarted($started) {
+        $started = new \DateTime($started);
+        return $started->format('Y-m-d H:i');
+    }
+
+    public function _getEnded($ended) {
+        $ended = new \DateTime($ended);
+        return $ended->format('Y-m-d H:i');
+    }
 }

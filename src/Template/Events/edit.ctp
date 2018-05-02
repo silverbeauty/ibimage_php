@@ -47,6 +47,7 @@
     <div id="step-1" class="">
         <?= $this->Form->create($event) ?>
         <?= $this->Form->hidden('id') ?>
+        <?= $this->Form->hidden('is_approved') ?>
         <input name="step" value="basic" type="hidden">
       <div class="form-group row">
           <?= $this->Form->label('parent', 'Parent Event', ['class' => 'col-sm-2 control-label'])?>
@@ -89,7 +90,7 @@
                 <div class="form-group row">
                 <?= $this->Form->label('started', 'Started', ['class' => 'col-sm-4 control-label'])?>
                 <div class="col-sm-8">
-                    <?= $this->Form->text('started', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+                    <?= $this->Form->text('started', ['class' => 'form-control form_datetime', 'autocomplete' => 'off', 'required']) ?>
                     <div class="help-block with-errors"></div>
                 </div>
 
@@ -100,7 +101,7 @@
                 <div class="form-group row">
                 <?= $this->Form->label('ended', 'Ended', ['class' => 'col-sm-4 control-label'])?>
                 <div class="col-sm-8">
-                    <?= $this->Form->text('ended', ['class' => 'form-control', 'autocomplete' => 'off', 'required']) ?>
+                    <?= $this->Form->text('ended', ['class' => 'form-control form_datetime', 'autocomplete' => 'off', 'required']) ?>
                     <div class="help-block with-errors"></div>
                 </div>
                 </div>
@@ -373,15 +374,17 @@
             }
         });
 
+        var isLeaveOk = false;
         $("#smartwizard").on("leaveStep", function(e, anchorObject, stepNumber, stepDirection) {
+            console.log(e);
             var elmForm = $("#step-" + (stepNumber + 1));
-
             if(stepNumber == 0) {
                 // parent id setting:
                 elmForm.find('input[name=parent_id]').val($('#parent-event input:checked').val() || '');
             }
-            console.log(elmForm);
+
             if(stepDirection === 'forward' && elmForm){
+
                 elmForm.validator('validate');
                 var elmErr = elmForm.children('.has-error');
                 if(elmErr && elmErr.length > 0){
@@ -389,19 +392,14 @@
                     return false;
                 } else {
 
-                    <?php
-                    if(empty($event['id'])):
-                    ?>
-                    var url = "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>";
-                    <?php else : ?>
-                    var url = "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>";
-                    <?php endif;?>
+                    if(isLeaveOk) {
+                        isLeaveOk = false;
+                        return true;
+
+                    }
 
                     var url = "<?= $this->Url->build(['controller' => 'events', 'action' => 'save'])?>";
 
-
-
-                    console.log(elmForm.find('form'));
                     var data = getFormDataAsJson(elmForm.find('form'));
                     $.ajax({
                         method: "POST",
@@ -410,7 +408,13 @@
                     })
                         .done(function( msg ) {
                             alert( "Data Saved: " + msg );
+                            isLeaveOk = true;
+                            $("#smartwizard").data('smartWizard').next();
+                            isLeaveOk = false;
+
                         });
+
+                    return false;
                 }
             }
             return true;
@@ -436,7 +440,7 @@
         $('#parent-event').treeview({
             debug : true,
             isSingle: true,
-            data : ['']
+            data : ['<?= $event->parent_id?>']
         });
 
         $('.tree-event').click(function(e) {
