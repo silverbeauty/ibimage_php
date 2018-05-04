@@ -50,14 +50,26 @@ $cakeDescription = 'IBImages-';
       <ul class="nav navbar-nav ml-auto">
           <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Administrator <span class="caret"></span></a>
-              <ul class="dropdown-menu" aria-labelledby="download">
-                  <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/photosizes', true)?>">Photo Sizes</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/users', true)?>">Users</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/photographers', true)?>">Photographers</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/events', true)?>">Events</a></li>
-                  <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/options', true)?>">Options</a></li>
 
-              </ul>
+              <div class="dropdown-menu" aria-labelledby="download">
+                  <a class="dropdown-item" href="<?= $this->Url->build('/users', true)?>">Users</a>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/photographers', true)?>">Photographers</a>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/photosizes', true)?>">Photo Sizes</a>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/events', true)?>">Events</a>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/metakeys', true)?>">Meta Keys</a>
+                  <div class="dropdown-divider"></div>
+
+                  <a class="dropdown-item" href="<?= $this->Url->build('/options', true)?>">Options</a>
+              </div>
+
+              <!--<ul class="dropdown-menu" aria-labelledby="download">
+                  <li class="nav-item"><a class="nav-link" href="<?/*= $this->Url->build('/photosizes', true)*/?>">Photo Sizes</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?/*= $this->Url->build('/users', true)*/?>">Users</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?/*= $this->Url->build('/photographers', true)*/?>">Photographers</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?/*= $this->Url->build('/events', true)*/?>">Events</a></li>
+                  <li class="nav-item"><a class="nav-link" href="<?/*= $this->Url->build('/options', true)*/?>">Options</a></li>
+              </ul>-->
           </li>
           <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/logout', true)?>">Logout</a></li>
 

@@ -1,6 +1,6 @@
 <div class="page-header">
     <div class="row">
-        <div class="col-6">
+        <div class="col-12">
             <h3>Edit User</h3>
         </div>
     </div>

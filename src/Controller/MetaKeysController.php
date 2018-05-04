@@ -12,6 +12,12 @@ use App\Controller\AppController;
 class MetaKeysController extends AppController
 {
 
+    public function initialize()
+    {
+
+        $this->loadModel('MetaKeys');
+        parent::initialize();
+    }
     /**
      * Index method
      *
@@ -19,8 +25,7 @@ class MetaKeysController extends AppController
      */
     public function index()
     {
-        $metaKeys = $this->paginate($this->MetaKeys);
-
+        $metaKeys = $this->Paginator->paginate($this->MetaKeys->find());
         $this->set(compact('metaKeys'));
     }
 
@@ -58,6 +63,8 @@ class MetaKeysController extends AppController
             $this->Flash->error(__('The meta key could not be saved. Please, try again.'));
         }
         $this->set(compact('metaKey'));
+
+        $this->render('edit');
     }
 
     /**
