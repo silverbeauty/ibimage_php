@@ -179,7 +179,7 @@ select.form-control option {
     box-shadow: none !important;
 }
 
-.dropdown-menu.show {
+.tree-dropdown .dropdown-menu.show {
     border-width: 1px;
     height: 30vh;
     width: 100%;

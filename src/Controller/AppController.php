@@ -46,7 +46,7 @@ class AppController extends Controller
         $this->loadComponent('File');
         $this->loadComponent('Option');
         $this->loadComponent('Util');
-
+        $this->loadComponent('Paginator');
 
         \Cake\I18n\Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
         \Cake\I18n\FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
