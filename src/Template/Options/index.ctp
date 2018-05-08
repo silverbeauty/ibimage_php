@@ -48,7 +48,7 @@
         <?= $this->Form->text('photo_root_path', ['class' => 'form-control', 'autocomplete' => 'off', 'default' => @$options['photo_root_path']]) ?>
         </div>
     </div>
-
+<!--
     <h5>Default Prices</h5>
     <div class="form-group row">
         <?= $this->Form->label('a5_price', 'A5', ['class' => 'col-sm-2 control-label'])?>
@@ -75,10 +75,12 @@
         <?= $this->Form->number('digital_price', ['class' => 'form-control', 'autocomplete' => 'off', 'default' => @$options['digital_price']]) ?>
         </div>
     </div>
-
+    -->
     <div class="form-group row">
         <div class="col-sm-10 offset-2">
             <?= $this->Form->submit('Save', ['class' => 'btn btn-secondary', 'autocomplete' => 'off']) ?>
         </div>
     </div>
+
+
 <?= $this->Form->end() ?>
