@@ -19,7 +19,7 @@
                 <th>Photo Size</th>
                 <th>Description</th>
                 <th>Active</th>
-                <th>Default Price</th>
+<!--                <th>Default Price</th>-->
                 <th>Action</th>
             </tr>
             </thead>
@@ -31,7 +31,7 @@
                         <td><?= h($photoSize->name) ?></td>
                         <td><?= h($photoSize->description) ?></td>
                         <td><?= h($photoSize->is_active) ?></td>
-                        <td><?= $this->Number->format($photoSize->default_price) ?></td>
+<!--                        <td>--><?//= $this->Number->format($photoSize->default_price) ?><!--</td>-->
                         <td class="actions">
                             <div class="dropdown">
                                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

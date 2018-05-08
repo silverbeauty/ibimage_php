@@ -20,12 +20,14 @@
         <?= $this->Form->textarea('description', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
     </div>
 </div>
+<!--
 <div class="form-group row">
     <?= $this->Form->label('default_price', 'Default Price', ['class' => 'col-sm-2 control-label'])?>
     <div class="col-sm-10">
         <?= $this->Form->number('default_price', ['class' => 'form-control', 'autocomplete' => 'off']) ?>
     </div>
 </div>
+-->
 <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">
         <?= $this->Form->checkbox('is_active', ['value' => '1', 'hiddenField' => '0']);?> Active
