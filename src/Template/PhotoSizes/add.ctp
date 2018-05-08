@@ -28,6 +28,7 @@
 </div>
 <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">
+        <input type="hidden" name="is_active" value="0">
         <?= $this->Form->checkbox('is_active', ['value' => '1', 'hiddenField' => '0']);?> Active
     </div>
 </div>
