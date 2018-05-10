@@ -60,7 +60,6 @@ $cakeDescription = 'IBImages-';
                   <a class="dropdown-item" href="<?= $this->Url->build('/photosizes', true)?>">Photo Sizes</a>
                   <a class="dropdown-item" href="<?= $this->Url->build('/pricegroups', true)?>">Price Groups</a>
                   <div class="dropdown-divider"></div>
-                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?= $this->Url->build('/advertisements', true)?>">Advertisement</a>
                   <a class="dropdown-item" href="<?= $this->Url->build('/watermarks', true)?>">Water Marks</a>
                   <div class="dropdown-divider"></div>
