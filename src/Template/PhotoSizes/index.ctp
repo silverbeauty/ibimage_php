@@ -4,8 +4,7 @@
             <h3>Photo Sizes</h3>
         </div>
         <div class="col-6 text-right">
-            <?= $this->Html->link(__('New'), ['action' => 'add'], ['class' => 'btn btn-secondary']) ?>
-           <!-- <button class="btn btn-secondary" id="del-user">Remove</button>-->
+            <?= $this->Html->link(__('New Size'), ['action' => 'add'], ['class' => 'btn btn-secondary']) ?>
         </div>
     </div>
 </div>
@@ -27,7 +26,7 @@
 
                 <?php $index = 0; foreach ($photoSizes as $photoSize): $index++?>
                     <tr>
-                        <td><?= $this->Form->checkbox('photo_sizes[]', ['value' => $photoSize->id]) ?><?= $this->Number->format($photoSize->id) ?></td>
+                        <td><?= $index ?></td>
                         <td><?= h($photoSize->name) ?></td>
                         <td><?= h($photoSize->description) ?></td>
                         <td><?= h($photoSize->is_active) ?></td>

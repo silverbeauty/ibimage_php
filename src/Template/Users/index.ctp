@@ -4,8 +4,7 @@
             <h3>Users</h3>
         </div>
         <div class="col-6 text-right">
-          <a href="<?= $this->Url->build('users/add')?>" class="btn btn-secondary">New</a>
-          <button class="btn btn-secondary" id="del-user">Remove</button>
+          <a href="<?= $this->Url->build('users/add')?>" class="btn btn-secondary">New User</a>
         </div>
     </div>
 </div>
@@ -26,7 +25,7 @@
             <tbody>
             <?php $roles = \Cake\Core\Configure::read('Roles'); $index = 0; foreach ($users as $user) : $index++?>
                 <tr>
-                    <th scope="row" style="word-break: normal; white-space: nowrap"><?= $this->Form->checkbox('chk_users[]', ['value' => $user->id]) ?><?= $index ?></th>
+                    <th scope="row" style="word-break: normal; white-space: nowrap"><?= $index ?></th>
                     <td><?= $user->full_name ?></td>
                     <td><?= $user->email ?></td>
                     <td><?= $user->username ?></td>
@@ -37,8 +36,8 @@
                           Action
                         </button>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
-                          <a class="dropdown-item btn btn-secondary" href="<?=$this->Url->build(['controller' => 'users','action' => 'edit', $user->id])?>">Edit</a>
-                          <a class="dropdown-item btn btn-secondary">Delete</a>
+                            <?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class' => 'dropdown-item btn btn-secondary']) ?>
+                            <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete?'), 'class' => 'dropdown-item btn btn-secondary']) ?>
                         </div>
                       </div>
                     </td>

@@ -78,4 +78,17 @@ class PhotographersController extends AppController
         //var_dump(implode(',', $checkedUsers));
         return $this->redirect(['action' => 'index']);
     }
+
+    public function delete($id = null)
+    {
+        $this->request->allowMethod(['post', 'delete']);
+        $user = $this->Photographers->get($id);
+        if ($this->Photographers->delete($user)) {
+            $this->Flash->success(__('The photographer has been deleted.'));
+        } else {
+            $this->Flash->error(__('The photographer could not be deleted. Please, try again.'));
+        }
+
+        return $this->redirect(['action' => 'index']);
+    }
 }
