@@ -30,7 +30,7 @@
 <div class="form-group row">
     <div class="col-sm-10 offset-sm-2">
         <?= $this->Form->button('Save', ['type' => 'submit', 'class' => 'btn btn-secondary']) ?>
-        <?= $this->Html->link(__('Cancel'), ['action' => 'index'], ['class' => 'dropdown-item btn btn-secondary']) ?>
+        <?= $this->Html->link(__('Cancel'), ['action' => 'index'], ['class' => 'btn btn-secondary']) ?>
     </div>
 </div>
 <?= $this->Form->end() ?>
