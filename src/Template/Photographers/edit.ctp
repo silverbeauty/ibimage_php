@@ -1,7 +1,7 @@
 <div class="page-header">
     <div class="row">
         <div class="col-12">
-            <h3>Edit User</h3>
+            <h3>Edit Photographer</h3>
         </div>
     </div>
 </div>
