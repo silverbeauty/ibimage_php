@@ -19,7 +19,6 @@ class PriceGroupsController extends AppController
         parent::initialize();
         $this->loadModel('PriceGroups');
         $this->loadModel('PriceGroupValues');
-
     }
 
     /**

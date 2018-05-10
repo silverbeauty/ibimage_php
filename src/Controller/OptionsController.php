@@ -27,6 +27,9 @@ class OptionsController extends AppController
             $this->saveOption('a4_price');
             $this->saveOption('a2_price');
             $this->saveOption('digital_price');
+
+            $this->saveOption('ads_upload_path');
+
             $this->Flash->success(__('Options saved'));
         }
 

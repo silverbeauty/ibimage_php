@@ -1,0 +1,38 @@
+.image-preview {
+    height: 50px;
+    position: relative;
+    overflow: hidden;
+    color: #ecf0f1;
+    background-repeat: no-repeat !important;
+    background-position: left top !important;
+    background-size: contain !important;
+}
+.image-preview input {
+    line-height: 50px;
+    font-size: 200px;
+    position: absolute;
+    opacity: 0;
+    z-index: 10;
+}
+.image-preview label {
+    position: absolute;
+    z-index: 5;
+    opacity: 0.8;
+    cursor: pointer;
+    background-color: #bdc3c7;
+    width: 200px;
+    height: 50px;
+    font-size: 20px;
+    line-height: 50px;
+    text-transform: uppercase;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    /*margin: auto;*/
+    text-align: center;
+}
+
+.image-preview.attached {
+    height: 200px;
+}

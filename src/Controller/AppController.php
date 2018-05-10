@@ -47,6 +47,7 @@ class AppController extends Controller
         $this->loadComponent('Option');
         $this->loadComponent('Util');
         $this->loadComponent('Paginator');
+        $this->loadComponent('Fileupload');
 
         \Cake\I18n\Time::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any mutable DateTime
         \Cake\I18n\FrozenTime::setJsonEncodeFormat('yyyy-MM-dd HH:mm:ss');  // For any immutable DateTime
@@ -80,5 +81,30 @@ class AppController extends Controller
         return true;
     }
 
+
+    public function uploadImage($upload_name, $form_name, $uploadPath, $baseUrl) {
+        $fuConfig['upload_path']    = $uploadPath;
+        $fuConfig['allowed_types']  = ['jpg', 'png', 'jpeg'];
+        $fuConfig['max_size']       = 0;
+        $this->Fileupload->init($fuConfig);
+
+
+        // Default Upload images
+        if(!empty($this->getRequest()->data[$upload_name]['name'])) {
+            if (!$this->Fileupload->upload($upload_name)){
+                $fError = $this->Fileupload->errors();
+                if($fError[0] == 'upload_invalid_filetype'){
+                    $this->getRequest()->data[$upload_name] = ['_error'=>'ExtNotAllowed'];
+                } else {
+                    $this->getRequest()->data[$upload_name] = ['_error'=>'FileNotUpload'];
+                }
+
+            } else {
+                $this->getRequest()->data[$form_name] = $baseUrl . '/' . $this->Fileupload->output('file_name');
+            }
+        } else {
+            unset($this->getRequest()->data[$upload_name]);
+        }
+    }
 
 }

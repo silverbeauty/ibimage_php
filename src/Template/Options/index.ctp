@@ -48,6 +48,13 @@
         <?= $this->Form->text('photo_root_path', ['class' => 'form-control', 'autocomplete' => 'off', 'default' => @$options['photo_root_path']]) ?>
         </div>
     </div>
+
+    <!--<div class="form-group row">
+        <?/*= $this->Form->label('ads_upload_path', 'Ads Upload Path', ['class' => 'col-sm-2 control-label'])*/?>
+        <div class="col-sm-10">
+            <?/*= $this->Form->text('ads_upload_path', ['class' => 'form-control', 'autocomplete' => 'off', 'default' => @$options['ads_upload_path']]) */?>
+        </div>
+    </div>-->
 <!--
     <h5>Default Prices</h5>
     <div class="form-group row">

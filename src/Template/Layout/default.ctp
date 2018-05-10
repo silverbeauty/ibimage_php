@@ -17,6 +17,8 @@ $cakeDescription = 'IBImages-';
     <?= $this->Html->css('bootstrap.min.css') ?>
     <?= $this->Html->css('/libs/jquery.datatables/datatables.css') ?>
     <?= $this->Html->css('/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css') ?>
+    <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
+    <?= $this->Html->css('/libs/jquery.uploadpreview/jquery.uploadpreview.css') ?>
     <?= $this->Html->css('custom.min.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->script('jquery.js') ?>
@@ -58,6 +60,10 @@ $cakeDescription = 'IBImages-';
                   <a class="dropdown-item" href="<?= $this->Url->build('/photosizes', true)?>">Photo Sizes</a>
                   <a class="dropdown-item" href="<?= $this->Url->build('/pricegroups', true)?>">Price Groups</a>
                   <div class="dropdown-divider"></div>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/advertisements', true)?>">Advertisement</a>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/watermarks', true)?>">Water Marks</a>
+                  <div class="dropdown-divider"></div>
                   <a class="dropdown-item" href="<?= $this->Url->build('/events', true)?>">Events</a>
                   <a class="dropdown-item" href="<?= $this->Url->build('/metakeys', true)?>">Meta Keys</a>
                   <div class="dropdown-divider"></div>
@@ -96,7 +102,7 @@ $cakeDescription = 'IBImages-';
   <?= $this->Html->script('/libs/masonry/masonry.pkgd.js') ?>
   <?= $this->Html->script('/libs/jquery.magnific-popup/jquery.magnific-popup.js') ?>
   <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js') ?>
-  <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
+  <?= $this->Html->script('/libs/jquery.uploadpreview/jquery.uploadpreview.js') ?>
   <?= $this->Html->script('scripts.js') ?>
   <?= $this->fetch('bottomScripts') ?>
 </body>
