@@ -68,7 +68,7 @@ class UsersController extends AppController
      */
     public function edit($id)
     {
-        $ftp_dirs = $this->File->getDirectories($this->ftpRootPath);
+        //$ftp_dirs = $this->File->getDirectories($this->ftpRootPath);
 
         $user = $this->Users->findById($id)->first();
         if($this->getRequest()->is('put')) {
@@ -80,7 +80,7 @@ class UsersController extends AppController
             Log::Debug($user->errors());
             $this->Flash->error(__('Unable to add your article.'));
         }
-        $this->set(compact('user','ftp_dirs'));
+        $this->set(compact('user'));
     }
 
     /**
