@@ -40,7 +40,7 @@ class UsersController extends AppController
     public function add()
     {
         $user = $this->Users->newEntity();
-        $ftp_dirs = $this->File->getDirectories($this->ftpRootPath);
+        //$ftp_dirs = $this->File->getDirectories($this->ftpRootPath);
 
         if($this->getRequest()->is('post')) {
             $user = $this->Users->patchEntity($user, $this->getRequest()->getData());
@@ -53,7 +53,7 @@ class UsersController extends AppController
             Log::Debug($user->errors());
             $this->Flash->error(__('Unable to add your article.'));
         }
-        $this->set(compact('user','ftp_dirs'));
+        $this->set(compact('user'));
 
 
         $this->render('edit');
