@@ -82,6 +82,10 @@
               <p><strong>Team:</strong>Oztag</p>
               <p><strong>Opposit:</strong>Helko</p>
             </div>
+
+            <div style="padding: 1em">
+                <a class="btn btn-warning" style="color: white">Add to Cart</a>
+            </div>
         </div>
     </div>
 
