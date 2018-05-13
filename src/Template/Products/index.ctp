@@ -41,13 +41,13 @@ $img = [
 </div>
 <div id="top-banner" class="row">
     <div class="col-sm-4">
-        <img src="<?=$this->Url->image('banner1.jpg')?>" style="width: 100%">
+        <a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('banner1.jpg')?>" style="width: 100%"></a>
     </div>
     <div class="col-sm-4">
-        <img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%">
+        <a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%"></a>
     </div>
     <div class="col-sm-4">
-        <img src="<?=$this->Url->image('banner3.jpg')?>" style="width: 100%">
+        <a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('banner3.jpg')?>" style="width: 100%"></a>
     </div>
 </div>
 <div class="grid">
@@ -60,20 +60,52 @@ $img = [
     </div>
     <?php endfor;?>
 </div>
-
+<div class="owl-carousel owl-theme">
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('sample5.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://snapshot.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample5.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://snapshot.com"><img src="<?=$this->Url->image('sample5.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
+</div>
 <div id="bottom-banner" class="row">
     <div class="col-sm-4">
-        <img src="<?=$this->Url->image('banner4.jpg')?>" style="width: 100%">
+        <a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('banner4.jpg')?>" style="width: 100%"></a>
     </div>
     <div class="col-sm-4">
-        <img src="<?=$this->Url->image('banner5.jpg')?>" style="width: 100%">
+        <a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('banner5.jpg')?>" style="width: 100%"></a>
     </div>
     <div class="col-sm-4">
-        <img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%">
+        <a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%"></a>
     </div>
 </div>
 <script>
     $( function() {
+
+        $('.owl-carousel').owlCarousel({
+            loop:true,
+            margin:10,
+            nav:true,
+            autoplay:true,
+            autoplayTimeout:1000,
+            autoplayHoverPause:true,
+            responsive:{
+                0:{
+                    items:3
+                },
+                600:{
+                    items:5
+                },
+                1000:{
+                    items:6
+                }
+            }
+        })
 
         var index = 0;
         $('.grid').masonry({

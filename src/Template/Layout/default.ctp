@@ -20,6 +20,8 @@ $cakeDescription = 'IBImages-';
     <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
     <?= $this->Html->css('/libs/jquery.uploadpreview/jquery.uploadpreview.css') ?>
     <?= $this->Html->css('/libs/jquery.steps/jquery.steps.css') ?>
+    <?= $this->Html->css('/libs/owl-carousel/assets/owl.carousel.min.css') ?>
+    <?= $this->Html->css('/libs/owl-carousel/assets/owl.theme.default.min.css') ?>
     <?= $this->Html->css('custom.min.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->script('jquery.js') ?>
@@ -97,8 +99,9 @@ $cakeDescription = 'IBImages-';
     Copyright © 2018 IBImages.
   </footer>
 
-  <?/*= $this->Html->script('/libs/jquery.validation/jquery.validate.js') */?>
-<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
+  <?= $this->Html->script('/libs/jquery.validation/jquery.validate.js') ?>
+  <!--<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>-->
+  <?= $this->Html->script('/libs/owl-carousel/owl.carousel.min.js') ?>
   <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.js') ?>
   <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.plugins.js') ?>
   <?= $this->Html->script('/libs/masonry/masonry.pkgd.js') ?>
