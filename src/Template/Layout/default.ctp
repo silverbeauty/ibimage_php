@@ -51,9 +51,17 @@ $cakeDescription = 'IBImages-';
           <a class="nav-link" href="<?= $this->Url->build('help', true)?>">Help</a>
         </li>
       </ul>
-      <?php if ($this->request->session()->read('Auth.User.id')):?>
+
       <ul class="nav navbar-nav ml-auto">
+
+          <?php if($this->request->params['controller'] == 'Products'):?>
+          <li class="nav-item">
+              <a class="nav-link" href="#" data-toggle="modal" data-target="#myModal">Filter</a>
+          </li>
+          <?php endif;?>
+          <?php if ($this->request->session()->read('Auth.User.id')):?>
           <li class="nav-item dropdown">
+
               <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download">Administrator <span class="caret"></span></a>
 
               <div class="dropdown-menu" aria-labelledby="download">
@@ -91,8 +99,9 @@ $cakeDescription = 'IBImages-';
                   <a class="dropdown-item" href="<?= $this->Url->build('/logout', true)?>">Logout</a>
               </div>
           </li>
+          <?php endif;?>
       </ul>
-      <?php endif;?>
+
     </div>
   </div>
 </div>

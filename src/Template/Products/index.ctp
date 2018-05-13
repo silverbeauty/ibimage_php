@@ -27,6 +27,46 @@ $img = [
     , $this->Url->image('sample4.jpg'), $this->Url->image('sample5.jpg')];
 ?>
 
+
+
+<div id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" class="modal fade text-left">
+    <div role="document" class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header"><strong id="exampleModalLabel" class="modal-title">Product Filder Options</strong>
+                <button type="button" data-dismiss="modal" aria-label="Close" class="close"><span aria-hidden="true">×</span></button>
+            </div>
+            <div class="modal-body">
+                <p>Please choose the filter. You can search by using these filters</p>
+                <form>
+                    <div class="form-group">
+                        <label>Event</label>
+                        <input type="text" placeholder="Events" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label>Start Date</label>
+                        <input type="text" placeholder="" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>End Date</label>
+                        <input type="text" placeholder="" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Field Numner</label>
+                        <input type="text" placeholder="" class="form-control">
+                    </div>
+
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" data-dismiss="modal" class="btn btn-secondary">Close</button>
+                <button type="button" class="btn btn-warning">Apply</button>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div data-loader="rectangle"></div>
 <div class="loader">
     <div></div>
