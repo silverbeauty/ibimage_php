@@ -38,9 +38,6 @@
                             <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
                                 <?= $this->Html->link(__('Edit'), ['action' => 'edit', $priceGroup->id], ['class' => 'dropdown-item btn btn-secondary']) ?>
                                 <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $priceGroup->id], ['confirm' => __('Are you sure you want to delete # {0}?', $priceGroup->id), 'class' => 'dropdown-item btn btn-secondary']) ?>
-
-<!--                                --><?//= $this->Html->link(__('Edit'), ['action' => 'edit', $photoSize->id], ['class' => 'dropdown-item btn btn-secondary']) ?>
-<!--                                --><?//= $this->Form->postLink(__('Delete'), ['action' => 'delete', $photoSize->id], ['confirm' => __('Are you sure you want to delete # {0}?', $photoSize->id), 'class' => 'dropdown-item btn btn-secondary']) ?>
                             </div>
                         </div>
                     </td>
