@@ -53,7 +53,7 @@ $img = [
                     </div>
 
                     <div class="form-group">
-                        <label>Field Numner</label>
+                        <label>Field Number</label>
                         <input type="text" placeholder="" class="form-control">
                     </div>
 
