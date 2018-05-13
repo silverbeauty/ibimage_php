@@ -33,7 +33,7 @@ class PriceGroupsTable extends Table
         parent::initialize($config);
 
         $this->setTable('price_groups');
-        $this->setDisplayField('id');
+        $this->setDisplayField('group_name');
         $this->setPrimaryKey('id');
 
         $this->hasMany('PriceGroupValues', [

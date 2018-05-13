@@ -9,9 +9,13 @@ use Cake\Validation\Validator;
 /**
  * Events Model
  *
+ * @property |\Cake\ORM\Association\BelongsTo $ParentEvents
  * @property \App\Model\Table\UsersTable|\Cake\ORM\Association\BelongsTo $Users
+ * @property |\Cake\ORM\Association\BelongsTo $PriceGroups
+ * @property |\Cake\ORM\Association\HasMany $EventAdsClick
  * @property \App\Model\Table\EventMetasTable|\Cake\ORM\Association\HasMany $EventMetas
  * @property \App\Model\Table\EventSharesTable|\Cake\ORM\Association\HasMany $EventShares
+ * @property |\Cake\ORM\Association\HasMany $ChildEvents
  * @property \App\Model\Table\PhotoSharesTable|\Cake\ORM\Association\HasMany $PhotoShares
  * @property \App\Model\Table\PhotosTable|\Cake\ORM\Association\HasMany $Photos
  *
@@ -26,16 +30,6 @@ use Cake\Validation\Validator;
 class EventsTable extends Table
 {
 
-    public function beforeSave($event, $entity, $options)
-    {
-        if($entity->is_approved) {
-            $entity->is_approved = 1;
-        } else {
-            $entity->is_approved = 0;
-        }
-
-        return true;
-    }
     /**
      * Initialize method
      *
@@ -47,18 +41,32 @@ class EventsTable extends Table
         parent::initialize($config);
 
         $this->setTable('events');
-        $this->setDisplayField('name');
+        $this->setDisplayField('id');
         $this->setPrimaryKey('id');
 
+        $this->belongsTo('ParentEvents', [
+            'className' => 'Events',
+            'foreignKey' => 'parent_id'
+        ]);
         $this->belongsTo('Users', [
             'foreignKey' => 'user_id',
             'joinType' => 'INNER'
+        ]);
+        $this->belongsTo('PriceGroups', [
+            'foreignKey' => 'price_group_id'
+        ]);
+        $this->hasMany('EventAdsClick', [
+            'foreignKey' => 'event_id'
         ]);
         $this->hasMany('EventMetas', [
             'foreignKey' => 'event_id'
         ]);
         $this->hasMany('EventShares', [
             'foreignKey' => 'event_id'
+        ]);
+        $this->hasMany('ChildEvents', [
+            'className' => 'Events',
+            'foreignKey' => 'parent_id'
         ]);
         $this->hasMany('PhotoShares', [
             'foreignKey' => 'event_id'
@@ -108,12 +116,35 @@ class EventsTable extends Table
 
         $validator
             ->boolean('is_approved')
-            ->requirePresence('is_approved', 'create')
             ->allowEmpty('is_approved');
 
         $validator
-            ->integer('parent_id')
-            ->allowEmpty('parent_id');
+            ->boolean('is_share')
+            ->allowEmpty('is_share');
+
+        $validator
+            ->integer('banner_top_left')
+            ->allowEmpty('banner_top_left');
+
+        $validator
+            ->integer('banner_top_center')
+            ->allowEmpty('banner_top_center');
+
+        $validator
+            ->integer('banner_top_right')
+            ->allowEmpty('banner_top_right');
+
+        $validator
+            ->integer('banner_bottom_left')
+            ->allowEmpty('banner_bottom_left');
+
+        $validator
+            ->integer('banner_bottom_center')
+            ->allowEmpty('banner_bottom_center');
+
+        $validator
+            ->integer('banner_bottom_right')
+            ->allowEmpty('banner_bottom_right');
 
         return $validator;
     }
@@ -127,7 +158,9 @@ class EventsTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
+        $rules->add($rules->existsIn(['parent_id'], 'ParentEvents'));
         $rules->add($rules->existsIn(['user_id'], 'Users'));
+        $rules->add($rules->existsIn(['price_group_id'], 'PriceGroups'));
 
         return $rules;
     }

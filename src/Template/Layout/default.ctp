@@ -19,6 +19,7 @@ $cakeDescription = 'IBImages-';
     <?= $this->Html->css('/libs/bootstrap-datetimepicker/css/bootstrap-datetimepicker.css') ?>
     <?= $this->Html->css('/libs/jquery.magnific-popup/magnific-popup.css') ?>
     <?= $this->Html->css('/libs/jquery.uploadpreview/jquery.uploadpreview.css') ?>
+    <?= $this->Html->css('/libs/jquery.steps/jquery.steps.css') ?>
     <?= $this->Html->css('custom.min.css') ?>
     <?= $this->Html->css('style.css') ?>
     <?= $this->Html->script('jquery.js') ?>
@@ -96,12 +97,15 @@ $cakeDescription = 'IBImages-';
     Copyright © 2018 IBImages.
   </footer>
 
+  <?/*= $this->Html->script('/libs/jquery.validation/jquery.validate.js') */?>
+<script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.17.0/dist/jquery.validate.js"></script>
   <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.js') ?>
   <?= $this->Html->script('/libs/jquery.lazy-master/jquery.lazy.plugins.js') ?>
   <?= $this->Html->script('/libs/masonry/masonry.pkgd.js') ?>
   <?= $this->Html->script('/libs/jquery.magnific-popup/jquery.magnific-popup.js') ?>
   <?= $this->Html->script('https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js') ?>
   <?= $this->Html->script('/libs/jquery.uploadpreview/jquery.uploadpreview.js') ?>
+  <?= $this->Html->script('/libs/jquery.steps/jquery.steps.js') ?>
   <?= $this->Html->script('scripts.js') ?>
   <?= $this->fetch('bottomScripts') ?>
 </body>

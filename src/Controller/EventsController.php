@@ -7,11 +7,18 @@ use App\Controller\AppController;
  * Events Controller
  *
  * @property \App\Model\Table\EventsTable $Events
+ * @property \App\Model\Table\PriceGroupsTable $PriceGroups
  *
  * @method \App\Model\Entity\Event[]|\Cake\Datasource\ResultSetInterface paginate($object = null, array $settings = [])
  */
 class EventsController extends AppController
 {
+
+    public function initialize()
+    {
+        parent::initialize();
+        $this->loadModel('PriceGroups');
+    }
 
     /**
      * Displaying all events
@@ -25,11 +32,16 @@ class EventsController extends AppController
         ];
 
 
-
+        $ownerId = $this->Auth->user('id');
         //$events = $this->paginate($this->Events->find()->toArray());
-        $events = $this->Events->find()->toArray();
+
+        $events = $this->Events->findByUserId($ownerId)->orderAsc('parent_id')->toArray();
+
+        //$this->Util->toTreeArray($events);
 
         $events = $this->Util->toTreeArray($events);
+
+//        print_r($events);
 
         $this->set(compact('events'));
     }
@@ -116,9 +128,16 @@ class EventsController extends AppController
     {
         $ownerId = $this->Auth->user('id');
         $event = $this->Events->findById($id)->first();
-        $events = $this->Events->find()->toArray();
+
+        $ftps = array();
+        $this->File->getDirectories($this->Option->getOption('ftp_root_path'), $ftps, false);
+
+        $priceGroups = $this->PriceGroups->find('list', ['keyField' => 'id',
+            'valueField' => 'group_name']);
+        $events = $this->Events->findByUserId($ownerId)->toArray();
         $events = $this->Util->toTreeArray($events);
-        $this->set(compact('events', 'event'));
+
+        $this->set(compact('events', 'event', 'priceGroups', 'ftps'));
         $this->render('edit');
     }
 

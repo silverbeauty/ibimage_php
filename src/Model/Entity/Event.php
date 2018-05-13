@@ -13,8 +13,16 @@ use Cake\ORM\Entity;
  * @property \Cake\I18n\FrozenTime $started
  * @property \Cake\I18n\FrozenTime $ended
  * @property bool $is_approved
- * @property int $parent
+ * @property int $parent_id
  * @property int $user_id
+ * @property bool $is_share
+ * @property int $price_group_id
+ * @property int $banner_top_left
+ * @property int $banner_top_center
+ * @property int $banner_top_right
+ * @property int $banner_bottom_left
+ * @property int $banner_bottom_center
+ * @property int $banner_bottom_right
  *
  * @property \App\Model\Entity\User $user
  * @property \App\Model\Entity\EventMeta[] $event_metas
@@ -24,8 +32,6 @@ use Cake\ORM\Entity;
  */
 class Event extends Entity
 {
-
-
 
     /**
      * Fields that can be mass assigned using newEntity() or patchEntity().
@@ -45,19 +51,21 @@ class Event extends Entity
         'is_approved' => true,
         'parent_id' => true,
         'user_id' => true,
-        'team1' => true,
-        'team2' => true,
-        'division' => true,
-        'association' => true,
-        'gender' => true,
-        'field_num' => true,
-
+        'is_share' => true,
+        'price_group_id' => true,
+        'banner_top_left' => true,
+        'banner_top_center' => true,
+        'banner_top_right' => true,
+        'banner_bottom_left' => true,
+        'banner_bottom_center' => true,
+        'banner_bottom_right' => true,
         'user' => true,
         'event_metas' => true,
         'event_shares' => true,
         'photo_shares' => true,
         'photos' => true
     ];
+
 
     public function _getStarted($started) {
         $started = new \DateTime($started);
@@ -68,4 +76,5 @@ class Event extends Entity
         $ended = new \DateTime($ended);
         return $ended->format('Y-m-d H:i');
     }
+
 }

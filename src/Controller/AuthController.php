@@ -8,6 +8,13 @@ use Cake\Mailer\MailerAwareTrait;
 use Cake\Log\Log;
 use App\Controller\AppController;
 
+
+use lsolesen\pel\Pel;
+use lsolesen\pel\PelDataWindow;
+use lsolesen\pel\PelJpeg;
+use lsolesen\pel\PelTiff;
+use App\IptcJpeg\Iptc;
+
 /**
  * Auth Controller
  *
@@ -24,6 +31,9 @@ class AuthController extends AppController
 
     public function login()
     {
+
+        ini_set('memory_limit', '32M');
+
         if ($this->Auth->user('id')) {
             $this->logout();
         }

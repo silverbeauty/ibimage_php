@@ -218,3 +218,9 @@ footer {
 .page-header {
     margin-bottom: 20px;
 }
+
+.treeview {
+    min-width: 300px;
+    height: 30vh;
+    scroll-y: auto;
+}

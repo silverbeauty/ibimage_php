@@ -12,37 +12,53 @@ use Cake\Controller\Component;
 class UtilComponent extends Component
 {
 
-    public function toTreeArray($array, $options = array("key" => 'id', 'parent' => 'parent_id', 'children' => 'children')) {
+    function createBranch(&$parents, $children, $options) {
+        $tree = array();
 
-        $arr_tree = array();
-        $arr_tmp = array();
+        $key = $options['key'];
+        $child_key = $options['children'];
 
-        foreach ($array as $item) {
-            $parentid = $item[$options['parent']];
-
-            $id = $item[$options['key']];
-
-            if ($parentid  == 0 || $parentid == null)
-            {
-                $arr_tree[$id] = $item;
-                $arr_tmp[$id] = &$arr_tree[$id];
+        foreach ($children as $child) {
+            if (isset($parents[$child[$key]])) {
+                $child[$child_key] =
+                    $this->createBranch($parents, $parents[$child[$key]], $options);
             }
-            else
-            {
-                if (!empty($arr_tmp[$parentid]))
-                {
-                    if(!$arr_tmp[$parentid][$options['children']]) {
-                        $arr_tmp[$parentid][$options['children']] = [];
-                    }
-                    $arr_tmp[$parentid]['children'][$id] = $item;
-                    $arr_tmp[$id] = &$arr_tmp[$parentid][$options['children']][$id];
-                }
-            }
+            $tree[] = $child;
+        }
+        return $tree;
+    }
+
+    /* Initialization */
+    function createTree($flat, $root = 0) {
+
+        $parents = array();
+        foreach ($flat as $a) {
+            if($a['parent_id'] == null)
+                $a['parent_id'] = 0;
+            $parents[$a['parent_id']][] = $a;
         }
 
-        unset($arr_tmp);
-        return $arr_tree;
 
+        return $this->createBranch($parents, $parents[$root]);
+    }
+
+
+    public function toTreeArray($array
+        , $options = array("key" => 'id', 'parent' => 'parent_id', 'children' => 'children', 'root' => 0)) {
+        $parents = array();
+
+
+        $root = $options['root'];
+        $parent = $options['parent'];
+
+        foreach ($array as $a) {
+            if($a[$parent] == null)
+                $a[$parent] = 0;
+            $parents[$a[$parent]][] = $a;
+        }
+
+
+        return $this->createBranch($parents, $parents[$root], $options);
     }
 
 }

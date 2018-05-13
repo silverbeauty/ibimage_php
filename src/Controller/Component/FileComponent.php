@@ -7,21 +7,65 @@ class FileComponent extends Component
     /**
      * @param $root
      */
-    public function getDirectories($root)
+    public function getDirectories($dir, &$results = array(), $rootOnly = true)
     {
 
-        $dirs = [];
-        $dir = dir($root);
+        $files = scandir($dir);
+        foreach($files as $key => $value){
+            $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
+            if(!is_dir($path)) {
+                //$results[] = $path;
+                continue;
+            } else if($value != "." && $value != "..") {
 
-        while (false !== ($entry = $dir->read())) {
-            if ($entry != '.' && $entry != '..') {
-                if (is_dir($root . '/' .$entry)) {
-                    $dirs[] = $entry;
+                $val = ['name' => $value, 'path' => $dir.DIRECTORY_SEPARATOR.$value];
+
+                if($rootOnly) {
+                    $results[] = $val;
+                    continue;
                 }
+
+                $val['children'] = array();
+                $this->getDirectories($path, $val['children'], $rootOnly);
+                $results[] = $val;
             }
         }
-        $dir->close();
 
-        return $dirs;
+        return $results;
+
+//        $dir = dir($root);
+//
+//        while (false !== ($entry = $dir->read())) {
+//            if ($entry != '.' && $entry != '..') {
+//                if (is_dir($root . DIRECTORY_SEPARATOR .$entry)) {
+//                    $val = ['name' => $entry, 'path' => $root . DIRECTORY_SEPARATOR .$entry];
+//                    $dirs[] = &$val ;
+//
+//                    if($rootOnly)
+//                        continue;
+//                    $val['children'] = $this->getDirectories($root . DIRECTORY_SEPARATOR .$entry, $rootOnly);
+//                }
+//            }
+//        }
+//        $dir->close();
+//        return $dirs;
     }
+
+    function getDirContents($dir, &$results = array()){
+        $files = scandir($dir);
+        foreach($files as $key => $value){
+            $path = realpath($dir.DIRECTORY_SEPARATOR.$value);
+            if(!is_dir($path)) {
+                $results[] = $path;
+            } else if($value != "." && $value != "..") {
+                getDirContents($path, $results);
+                $results[] = $path;
+            }
+        }
+
+        return $results;
+    }
+
+
+
 }

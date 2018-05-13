@@ -16,11 +16,15 @@ class TreeHelper extends CommonHelper
         $options['display']        = empty($options['display']) ? 'name' : $options['display'];
         $options['children']    = empty($options['children']) ? 'children' : $options['children'];
         $options['props']        = empty($options['props']) ? [] : $options['props'];
+        $options['exclude']        = empty($options['exclude']) ? null : $options['exclude'];
 
         $index = 0;
         $deep = 0;
 
         foreach ($items as $item) {
+            if($item[$options['key']] == $options['exclude'])
+                continue;
+
             $index++;
             $callback($item, $deep, $index);
             if (!empty($item[$options['children']])) {
@@ -32,6 +36,8 @@ class TreeHelper extends CommonHelper
     private function _toHtmlAsCallback($items, $callback, $options, &$index, $deep) {
         $deep++;
         foreach ($items as $item) {
+            if($item[$options['key']] == $options['exclude'])
+                continue;
             $index++;
             $callback($item, $deep, $index);
             if (!empty($item[$options['children']])) {
@@ -48,13 +54,16 @@ class TreeHelper extends CommonHelper
         $options['display']        = empty($options['display']) ? 'name' : $options['display'];
         $options['children']    = empty($options['children']) ? 'children' : $options['children'];
         $options['props']        = empty($options['props']) ? [] : $options['props'];
+        $options['exclude']        = empty($options['exclude']) ? null : $options['exclude'];
 
         $index = 0;
         $deep = 0;
 
         foreach ($items as $item) {
-            $index++;
+            if($item[$options['key']] == $options['exclude'])
+                continue;
 
+            $index++;
             $callback($item, $deep, $index);
             if (!empty($item[$options['children']])) {
                 $deep++;
@@ -68,6 +77,9 @@ class TreeHelper extends CommonHelper
 
     private function _toTreeAsCallback($items, $callback, $options, &$index, $deep) {
         foreach ($items as $item) {
+            if($item[$options['key']] == $options['exclude'])
+                continue;
+
             $index++;
             $callback($item, $deep, $index);
             if (!empty($item[$options['children']])) {

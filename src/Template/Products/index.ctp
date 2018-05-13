@@ -21,25 +21,35 @@
 
 </style>
 <?php
-$img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.de/lazy/images/2.jpg"
-    , "http://jquery.eisbehr.de/lazy/images/3.jpg", "http://jquery.eisbehr.de/lazy/images/4.jpg"
-    , "http://jquery.eisbehr.de/lazy/images/5.jpg", "http://jquery.eisbehr.de/lazy/images/6.jpg"
-    , "http://jquery.eisbehr.de/lazy/images/7.jpg", "http://jquery.eisbehr.de/lazy/images/8.jpg",*/
+$img = [
     $this->Url->image('sample0.jpg'), $this->Url->image('sample1.jpg')
     , $this->Url->image('sample2.jpg'), $this->Url->image('sample3.jpg')
     , $this->Url->image('sample4.jpg'), $this->Url->image('sample5.jpg')];
 ?>
 
 <div data-loader="rectangle"></div>
-<div class="loader"><div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div>
-  <div></div></div>
+<div class="loader">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</div>
+<div id="top-banner" class="row">
+    <div class="col-sm-4">
+        <img src="<?=$this->Url->image('banner1.jpg')?>" style="width: 100%">
+    </div>
+    <div class="col-sm-4">
+        <img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%">
+    </div>
+    <div class="col-sm-4">
+        <img src="<?=$this->Url->image('banner3.jpg')?>" style="width: 100%">
+    </div>
+</div>
 <div class="grid">
     <?php
     for($i = 0; $i < 100; $i++): $val = 'sample' . rand(0, 15) % 15 . '.jpg';$val = rand(0, 6) % 6;
@@ -51,7 +61,17 @@ $img = [/*"http://jquery.eisbehr.de/lazy/images/1.jpg", "http://jquery.eisbehr.d
     <?php endfor;?>
 </div>
 
-
+<div id="bottom-banner" class="row">
+    <div class="col-sm-4">
+        <img src="<?=$this->Url->image('banner4.jpg')?>" style="width: 100%">
+    </div>
+    <div class="col-sm-4">
+        <img src="<?=$this->Url->image('banner5.jpg')?>" style="width: 100%">
+    </div>
+    <div class="col-sm-4">
+        <img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%">
+    </div>
+</div>
 <script>
     $( function() {
 
