@@ -222,5 +222,5 @@ footer {
 .treeview {
     min-width: 300px;
     height: 30vh;
-    scroll-y: auto;
+    overflow-y: auto;
 }
