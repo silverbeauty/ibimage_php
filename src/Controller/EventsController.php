@@ -35,7 +35,8 @@ class EventsController extends AppController
         $ownerId = $this->Auth->user('id');
         //$events = $this->paginate($this->Events->find()->toArray());
 
-        $events = $this->Events->findByUserId($ownerId)->orderAsc('parent_id')->toArray();
+        //$events = $this->Events->findByUserId($ownerId)->orderAsc('parent_id')->toArray();
+        $events = $this->Events->find()->orderAsc('parent_id')->toArray();
 
         //$this->Util->toTreeArray($events);
 
