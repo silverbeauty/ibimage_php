@@ -40,13 +40,13 @@ $img = [
     <div></div>
 </div>
 <div id="top-banner" class="row">
-    <div class="col-sm-4">
+    <div class="col-4">
         <a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('banner1.jpg')?>" style="width: 100%"></a>
     </div>
-    <div class="col-sm-4">
+    <div class="col-4">
         <a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%"></a>
     </div>
-    <div class="col-sm-4">
+    <div class="col-4">
         <a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('banner3.jpg')?>" style="width: 100%"></a>
     </div>
 </div>
@@ -74,13 +74,13 @@ $img = [
     <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
 </div>
 <div id="bottom-banner" class="row">
-    <div class="col-sm-4">
+    <div class="col-4">
         <a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('banner4.jpg')?>" style="width: 100%"></a>
     </div>
-    <div class="col-sm-4">
+    <div class="col-4">
         <a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('banner5.jpg')?>" style="width: 100%"></a>
     </div>
-    <div class="col-sm-4">
+    <div class="col-4">
         <a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('banner2.jpg')?>" style="width: 100%"></a>
     </div>
 </div>
