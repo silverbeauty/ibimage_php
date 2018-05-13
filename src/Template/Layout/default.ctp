@@ -81,8 +81,16 @@ $cakeDescription = 'IBImages-';
                   <li class="nav-item"><a class="nav-link" href="<?/*= $this->Url->build('/options', true)*/?>">Options</a></li>
               </ul>-->
           </li>
-          <li class="nav-item"><a class="nav-link" href="<?= $this->Url->build('/logout', true)?>">Logout</a></li>
+          <li class="nav-item">
+          <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" id="download"><?=$this->request->session()->read('Auth.User.full_name')?><span class="caret"></span></a>
 
+              <div class="dropdown-menu" aria-labelledby="download">
+                  <a class="dropdown-item" href="#">Settings</a>
+                  <a class="dropdown-item" href="#">Change Password</a>
+                  <a class="dropdown-item" href="<?= $this->Url->build('/logout', true)?>">Logout</a>
+              </div>
+          </li>
       </ul>
       <?php endif;?>
     </div>
