@@ -98,6 +98,9 @@ class EventsController extends AppController
     {
         $ownerId = $this->Auth->user('id');
         $event = $this->Events->newEntity();
+        $ftps = array();
+        $this->File->getDirectories($this->Option->getOption('ftp_root_path'), $ftps, false);
+
         if ($this->request->is('post')) {
             $event = $this->Events->patchEntity($event, $this->request->getData());
             $event->user_id = $ownerId;
