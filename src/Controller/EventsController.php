@@ -109,11 +109,13 @@ class EventsController extends AppController
             $this->Flash->error(__('The event could not be saved. Please, try again.'));
         }
 
+        $priceGroups = $this->PriceGroups->find('list', ['keyField' => 'id',
+            'valueField' => 'group_name']);
+        //$events = $this->Events->findByUserId($ownerId)->toArray();
         $events = $this->Events->find()->toArray();
-
         $events = $this->Util->toTreeArray($events);
 
-        $this->set(compact('events', 'event'));
+        $this->set(compact('events', 'event', 'priceGroups', 'ftps'));
 
         $this->render('edit');
     }
@@ -135,7 +137,8 @@ class EventsController extends AppController
 
         $priceGroups = $this->PriceGroups->find('list', ['keyField' => 'id',
             'valueField' => 'group_name']);
-        $events = $this->Events->findByUserId($ownerId)->toArray();
+        //$events = $this->Events->findByUserId($ownerId)->toArray();
+        $events = $this->Events->find()->toArray();
         $events = $this->Util->toTreeArray($events);
 
         $this->set(compact('events', 'event', 'priceGroups', 'ftps'));
