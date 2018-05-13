@@ -157,10 +157,11 @@ class EventsController extends AppController
             // saving basic data
             if($id) {
                 $event = $this->Events->findById($id)->first();
-                $ownerId = $this->Auth->user('id');
-                $event->user_id = $ownerId;
+
             } else {
                 $event = $this->Events->newEntity();
+                $ownerId = $this->Auth->user('id');
+                $event->user_id = $ownerId;
             }
 
             $event = $this->Events->patchEntity($event, $this->getRequest()->getData());
