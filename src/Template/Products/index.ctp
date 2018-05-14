@@ -101,17 +101,52 @@ $img = [
     <?php endfor;?>
 </div>
 <div class="owl-carousel owl-theme">
-    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('sample5.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://snapshot.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample5.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://snapshot.com"><img src="<?=$this->Url->image('sample5.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample4.jpg')?>"></a></div>
-    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample0.jpg')?>"></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com">
+        <img src="<?=$this->Url->image('sample0.jpg')?>"></a>
+        <figcaption class="img-title">
+            <h5>Image Title</h5>
+        </figcaption>
+    </div>
+    <div class="item"><a target="_blank" href="http://facebook.com"><img src="<?=$this->Url->image('sample5.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('sample4.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('sample0.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://snapshot.com"><img src="<?=$this->Url->image('sample4.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample5.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://pinterest.com"><img src="<?=$this->Url->image('sample4.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://twitter.com"><img src="<?=$this->Url->image('sample0.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://snapshot.com"><img src="<?=$this->Url->image('sample5.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample4.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
+    <div class="item"><a target="_blank" href="http://ibimages.com"><img src="<?=$this->Url->image('sample0.jpg')?>">
+            <figcaption class="img-title">
+                <h5>Image Title</h5>
+            </figcaption></a></div>
 </div>
 <div id="bottom-banner" class="row">
     <div class="col-sm-4">
@@ -146,6 +181,15 @@ $img = [
                 }
             }
         })
+
+        $('.owl-item .item').hover( function() {
+            $(this).css('opacity', 0.6);
+            $(this).find('.img-title').fadeIn(300);
+        }, function() {
+            $(this).css('opacity', 1);
+            $(this).find('.img-title').fadeOut(100);
+        });
+
 
         var index = 0;
         $('.grid').masonry({

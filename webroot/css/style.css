@@ -224,3 +224,28 @@ footer {
     height: 30vh;
     overflow-y: auto;
 }
+
+.owl-item .item {
+    position: relative;
+}
+
+.owl-item .item .img-title {
+    position: absolute;
+    top: 0;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    /*opacity: 0;*/
+    display: none; /* comment this out for CSS hover */
+    /*background-color: #333;*/
+    transition: all 0.5s ease;
+}
+
+.owl-item .item .img-title h5 {
+    position: absolute;
+    color: #fff;
+    top: 33%;
+    width: 100%;
+    text-align: center;
+}
